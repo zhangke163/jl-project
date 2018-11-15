@@ -1,4 +1,5 @@
 # jl-project
+代码只是一小部分，仅供参考。以下是一些截图
 ![image](https://github.com/zhangke163/jl-project/blob/master/project_screenshots/%E9%A6%96%E9%A1%B5.png);
 ![image](https://github.com/zhangke163/jl-project/blob/master/project_screenshots/%E8%BF%90%E7%BB%B4%E7%AE%A1%E7%90%86-%E6%96%B0%E5%BB%BA%E4%BB%BB%E5%8A%A1.png);
 ![image](https://github.com/zhangke163/jl-project/blob/master/project_screenshots/%E8%BF%90%E7%BB%B4%E7%AE%A1%E7%90%86-%E5%9C%B0%E7%82%B9%E7%AE%A1%E7%90%86.png);
