@@ -1,0 +1,57 @@
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.star {
+    color: #ff5f5f;
+}
+
+#ry-info .layui-form-label {
+    width: 75px;
+    text-align: left;
+    padding-right: 0;
+}
+
+#ry-info .layui-input-block {
+    margin-left: 90px;
+}
+
+.buts .left {
+    color: #888888;
+    font-size: 12px;
+    padding-left: 20px;
+    line-height: 40px;
+}
+
+#clearBtn {
+    width: 100px;
+}
+
+#addBtn {
+    width: 100px;
+    background-color: #0095ff;
+}
+
+.new-form-item {
+    width: calc(18% - 20px);
+}
+
+.form-item-small {
+    width: calc(9.8% - 30px);
+}
+
+.buts .tips-box {
+    min-width: 200px;
+    height: 40px;
+    line-height: 40px;
+    color: red;
+    margin-left: 20px;
+}
+
+.laytable-cell-1-8 {
+    width: 200px;
+}

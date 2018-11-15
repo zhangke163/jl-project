@@ -1,0 +1,158 @@
+<title>任务统计</title>
+<script type="text/html" template lay-done="layui.data.loadMap1()">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/all.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/taskStatistics.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/font-awesome/css/font-awesome.min.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/screen.css" media="all">
+</script>
+<div class="layui-card layadmin-header">
+  <div class="layui-breadcrumb" lay-filter="breadcrumb">
+    <a lay-href="">主页</a>
+    <a><cite>运维管理</cite></a>
+    <a><cite>任务统计</cite></a>
+  </div>
+</div>
+
+<div class="layui-fluid new-fluid">
+	<div class="layui-row layui-col-space15">
+			<div class="layui-col-md2">
+				<div class="layui-card">
+					<div class="layui-card-header old-border">
+						<div class="div-border">
+							<span class="span-border"></span>
+							<span>任务完成情况</span>
+						</div>
+					</div>
+					<div class="layui-card-body">
+						<div class="margin-collapse">
+							<div class="task-info">
+								<div class="task-module">
+									<div class="module-name">总任务数量</div>
+									<div class="module-num all-num" id='all-task'></div>
+								</div>
+								<div class="task-module">
+									<div class="module-name">结束的任务</div>
+									<div class="module-num all-num" id='end-task'></div>
+								</div>
+								<div class="task-module">
+									<div class="module-name">进行中的任务</div>
+									<div class="module-num all-num" id='ing-task'></div>
+								</div>
+							</div>
+		        	<div>
+		          	<div class="current-time1">
+					    		<span>当前时间：</span>
+					    		<span id="time"></span>
+					    	</div>
+					    	<div class="refresh">
+					    		<button>刷新 <i class="layui-icon layui-icon-refresh-3" style="font-size: 12px;"></i></button>
+					    	</div>
+					    	<div class="layui-clear"></div>
+		        	</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-col-md10">
+				<div class="layui-card">
+					<div class="layui-card-header old-border">
+						<div class="div-border">
+							<span class="span-border"></span>
+							<span>任务类型统计</span>
+						</div>
+					</div>
+					<div class="layui-card-body">
+	          <div class="margin-collapse">
+	          	<div id="task_type"></div>
+	          </div>
+	        </div>
+				</div>
+			</div>
+			<div class="layui-col-md12">
+				<div class="layui-card">
+					<div class="layui-card-header old-border">
+						<div class="div-border">
+							<span class="span-border"></span>
+							<span>数据列表</span>
+						</div>
+					</div>
+					<div class="layui-card-body">
+	          <div>
+	          	<div class="more-data">
+	          		<form class="layui-form task-form-box" action="" lay-filter="search-form" style='width: 100%;' id='search-form'>
+	          			<div class="new-form-item">
+	          				<div class="layui-input-block new-input">
+	          					<input type="text" class="layui-input date-box" id="date" placeholder="请选择时间">
+	          					<i class="layui-icon layui-icon-date" style="font-size: 20px; position: absolute; top: 9px; left: 9px;"></i>
+	          				</div>
+	          			</div>
+	          			<div class="new-form-item">
+	          				<div class="select-tab-btn rountSize">
+	          					<div class="tab-btn-left active">地点</div>
+	          					<div class="tab-btn-right">路线</div>
+	          				</div>
+	          				<div class="select-tab-content">
+		          				<select name="Search" lay-filter="target" lay-search class='content-one' id='Search' lay-search>
+									<option value="">请选择</option>
+								</select>
+	          				</div>
+	          			</div>
+			      			<div class="new-form-item">
+			      				<div class="layui-input-block new-input">
+			      					<select name="alarm" id='peoples' lay-search>
+			      						<option value="">请选择巡检员</option>
+								      </select>
+			      				</div>
+			      			</div>
+			      			<div class="new-form-item">
+			      				<div class="layui-input-block new-input">
+			      					<select name="alarm" id="finished">
+			      						<option value="">请选择状态</option>
+								        <option value="1">新任务</option>
+								        <option value="2">处理中</option>
+								        <option value="3">养护完成</option>
+								        <option value="4">审核通过</option>
+								        <option value="5">审核不通过</option>
+								     </select>
+			      				</div>
+			      			</div>
+			      			<div class="new-form-item form-item-small">
+			      			    <div class="layui-input-block new-input task-btn">
+			      			      <button class="layui-btn" lay-submit lay-filter="formDemo" data-type='taskSearchBtn'>查询</button>
+			      			    </div>
+		      			  	</div>
+		      			  <div class="layui-clear"></div>
+	          		</form>
+	          		<div class="print-box">
+	          			
+	          			<button class="print" id='print'><i class="fa fa-print" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>打印</button>
+	          			<button class="export" id='export'><i class="fa fa-share-square-o" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>导出</button>
+	          			<!-- <button class="export"><i class="fa fa-plus-circle" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>添加</button> -->
+	          			<div class="layui-clear"></div>
+	          		</div>
+	          		<div id='tableP'>
+	      			    <table class="layui-hide" id="data_table" lay-filter="data_table"></table>
+
+	      			    <script type="text/html" id="table_btn">
+	      			      <a class="layui-btn layui-btn-xs new-table-btn" lay-event="details">详情</a>
+	      			    </script>
+	          		</div>
+	          	</div>
+	          </div>
+	        </div>
+				</div>
+			</div>
+	</div>
+</div>
+
+<div class="layui-footer footer footer-demo new-footer-demo">
+	<div class="layui-main new-footer">版权所有@2018 金华市政管理处</div>
+</div>
+
+<script>
+	layui.data.loadMap1=function(){
+		//加载 controller 目录下的对应模块
+		layui.use('taskStatistics', layui.factory('taskStatistics'));
+		
+	}
+</script>

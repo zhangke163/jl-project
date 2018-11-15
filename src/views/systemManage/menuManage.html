@@ -1,0 +1,53 @@
+<script type="text/html" template lay-done="layui.data.loadMap()">
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/zTree/zTreeStyle.css" media="all">
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/all.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/zTree/metroStyle.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/menuManage.css" />
+	<div class="layui-card layadmin-header">
+		<div class="layui-breadcrumb" lay-filter="breadcrumb">
+			 <a lay-href="">主页</a>
+		      <a><cite>系统管理</cite></a>
+		      <a><cite>菜单管理</cite></a>
+		</div>
+	</div>
+
+	<div class="layui-fluid layadmin-homepage-fluid">
+		<div class='leftSide'>
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>菜单管理</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+					<div class="menu-body">
+						<div class="menu-title">
+							<div class="menu-left left">
+								<img src="{{ layui.setter.base }}style/res/menu-icon.png" class='left'/>
+								<span class='left'>菜单组织关系图</span>
+							</div>
+							<button class='right' id='addParent'>新增根节点</button>
+						</div>
+						<div id="menutree-box">
+							<ul id="menutree" class="ztree"></ul>
+						</div>
+						<div class="button-box">
+							<button class='left' id='reset'>重置</button>
+							<button class='right' id='saveBtn'>保存</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="layui-footer footer footer-demo new-footer-demo">
+		<div class="layui-main new-footer">版权所有@2018 金华市政管理处</div>
+	</div>
+</script>
+<script>
+	layui.data.loadMap = function () {
+		layui.use('menuManage', layui.factory('menuManage'));
+	}
+</script>

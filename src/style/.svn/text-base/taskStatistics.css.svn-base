@@ -1,0 +1,94 @@
+.margin-collapse {
+	height: 351px;
+}
+
+.new-table-btn {
+	background-color: #0095ff;
+  border-radius: 3px;
+  width: 50px;
+}
+
+.new-form-item {
+  float: left;
+  width: calc(22.6% - 20px);
+  margin-right: 20px;
+}
+
+.form-item-small {
+  width: calc(9.6% - 30px);
+  margin: 0;
+  margin-left: 30px;
+}
+
+.select-tab-btn {
+	width: calc(30% - 5px);
+	margin-right: 5px;
+	float: left;
+	height: 38px;
+}
+
+.select-tab-content {
+	width: 70%;
+	float: left;
+}
+
+.select-tab-btn > div {
+	float: left;
+	width: 50%;
+	height: 38px;
+	line-height: 38px;
+	box-sizing: border-box;
+	text-align: center;
+	border: solid 1px #dadee4;
+	color: #bcbcbc;
+	cursor: pointer;
+	/*-webkit-transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;*/
+}
+
+.select-tab-btn > div.active {
+	border: none;
+	background-color: #0095ff;
+	color: #fff;
+}
+
+.tab-btn-left {
+	border-radius: 3px 0px 0px 3px;
+}
+
+.tab-btn-right {
+	border-radius: 0px 3px 3px 0px;
+}
+
+.task-info {
+	height: 300px;
+	margin-top: 10px;
+	padding: 0 10px;
+}
+
+.task-module {
+	padding: 18px 20px 17px 18px;
+	/*box-shadow: 0px 1px 0px 0px 
+		rgba(224, 224, 224, 0.3);*/
+	margin-bottom: 10px;
+	box-sizing: border-box;
+}
+
+.task-module .module-name {
+	height: 15px;
+	line-height: 15px;
+}
+
+.task-module .module-num {
+	height: 23px;
+	line-height: 23px;
+	margin-top: 17px;
+}
+.refresh button{
+	border:0;
+	cursor: pointer;
+	background: transparent;
+	color: #0095ff;
+}

@@ -1,0 +1,467 @@
+<script type="text/html" template lay-done="layui.data.loadMap()">
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/template.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/animate.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/base.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/map.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/page.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/box.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/test.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/message.css" />
+
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/leaflet.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/MarkerCluster.Default.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/MarkerCluster.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/leaflet.groupedlayercontrol.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/L.Control.BetterScale.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/L.Control.MousePosition.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/mapPop.css" />
+	<style type="text/css">
+		body .Controllayer .Legendname1,
+		body .Controllayer .LegendR1 .Legendcontent1,
+		body .Controllayer .LegendR1 .shrink1 {
+			background: #ffffff;
+			border: 0;
+		}
+		
+		body .Legend .LegendR .shrink {
+			background:url({{ layui.setter.base }}style/res/sq1.png) #fff 0 18px no-repeat;
+		}
+		
+		body .Controllayer .LegendR1 .shrink1 {
+			background:url({{ layui.setter.base }}style/res/sq1.png) no-repeat;
+		}
+		
+		.Controllayer label span {
+			color: #000000;
+		}
+		
+		body .Controllayer .LegendR1 .shrink1 {
+			border-left: 1px solid #dadee4
+		}
+	</style>
+	<div class="layui-body" style="top: 0; left: 0;">
+		<!-- 内容主体区域 -->
+		<div>
+			<!--地图容器-->
+			<div id="map_container"></div>
+			<!--全景容器-->
+			<div id="panorama_container" style="width: 100%;position: relative;display: none;">
+				<a href="javascript:;" id="back">&lt; 返回</a>
+			</div>
+
+			<div id="imgContainer"> </div>
+
+			<div id="videoContainer" style="display: none;">
+
+				<video id="wellVideo" width="600" controls="controls">
+				</video>
+			</div>
+		</div>
+		<!--左侧悬浮框-->
+		<div class="left-frame" style="z-index: 450;">
+			<div class="i-input">
+				<input type="text" name="title" placeholder="查找道路管线" autocomplete="off" class="layui-input fl searchInput">
+				<a href="javascript:;" class="zy-search"></a>
+				<a href="javascript:;" class="search" id="dlSearch">
+					<img src="{{ layui.setter.base }}style/res/搜索.png" alt="">
+				</a>
+			</div>
+
+			<!--重点路段-->
+			<ul class="positionLink clearfix">
+				<li lat="29.08771" lng="119.63213">
+					<a href="javascript:;"><img src="{{ layui.setter.base }}style/res/重点路段.png" alt="">婺州街/双馨路</a>
+				</li>
+				<li lat="29.09099" lng="119.63912">
+					<a href="javascript:;"><img src="{{ layui.setter.base }}style/res/重点路段.png" alt="">双龙南街/双溪西路</a>
+				</li>
+				<li lat="29.08350" lng="119.65043">
+					<a href="javascript:;"><img src="{{ layui.setter.base }}style/res/重点路段.png" alt="">八一南街/阳光路</a>
+				</li>
+				<li lat="29.07905" lng="119.66225">
+					<a href="javascript:;"><img src="{{ layui.setter.base }}style/res/重点路段.png" alt="">东阳街/东莱路</a>
+				</li>
+			</ul>
+			<!--历史记录-->
+			<ul class="positionRecord clearfix">
+			</ul>
+			<ul>
+
+			</ul>
+		</div>
+
+		<div class="result" style="z-index: 450;">
+			<!--搜索结果-->
+			<div class="num">
+				共<span id='searchRes'></span>条搜索结果
+			</div>
+			<div class="layui-tab layui-tab-card searchResult">
+				<ul class="layui-tab-title selectType">
+					<li class="layui-this" data="yspoint" style="border-radius: 5px 0px 0px 0px;">
+						雨水管井
+					</li>
+					<li data="wspoint">
+						污水管井
+					</li>
+					<li data="ysline">
+						雨水管线
+					</li>
+					<li data="wsline" style="border-radius: 0px 5px 0px 0px;">
+						污水管线
+					</li>
+				</ul>
+				<div class="layui-tab-content">
+					<div class="layui-tab-item layui-show">
+						<ul class="list" id="listPanel">
+						</ul>
+						<div class="paginationWrap" style="height:54px;padding-left:20px;box-sizing: border-box;">
+							<nav aria-label="Page navigation">
+								<ul class="pagination" id="pagination" style="text-align: center;"></ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--图层控制-->
+		<div class="Controllayer" style="z-index: 450;bottom:130px;left:40px;">
+			<div class="Legendname1">
+				<a href="javascript:;"><img src="{{ layui.setter.base }}style/res/tckz.png" alt=""></a>
+			</div>
+			<div class="LegendR1">
+				<div class="Legendcontent1" style="display: block;">
+					<form class="" action="">
+						<label> <input type="checkbox" name="like[write]" value="雨水管线" title="雨水管线" 
+                                   /><i>✓</i><span>雨水管线</span></label>
+						<label><input type="checkbox" name="like[write]" value="污水管线" title="污水管线" 
+								><i>✓</i><span>污水管线</span></label>
+						<label> <input type="checkbox" name="like[write]" value="监测点" title="监测点"
+                                   checked><i>✓</i><span>监测点</span></label>
+						<label><input type="checkbox" name="like[write]" value="液位计" title="液位计"
+                                  checked><i>✓</i><span>液位计</span></label>
+						<label><input type="checkbox" name="like[write]" value="泵站" title="泵站"
+                                  checked><i>✓</i><span>泵站</span></label>
+						<label><input type="checkbox" name="like[write]" value="易涝点" title="易涝点"
+                                  checked><i>✓</i><span>易涝点</span></label>
+						<label><input type="checkbox" name="like[write]" value="污水处理厂" title="污水处理厂" 
+								checked><i>✓</i><span>污水处理厂</span></label>
+						<label><input type="checkbox" name="like[write]" value="污水干管" title="污水干管" 
+								checked><i>✓</i><span>污水干管</span></label>
+						<label><input type="checkbox" name="like[write]" value="路网"
+                                  title="路网"><i>✓</i><span>路网</span></label>
+						<label><input type="checkbox" name="like[write]" value="影像图"
+                                  title="影像图"><i>✓</i><span>影像图</span></label>
+						<label><input type="checkbox" name="like[write]" value="街道全景"
+                                  title="街道全景"><i>✓</i><span>街道全景</span></label>
+					</form>
+				</div>
+				<div class="shrink1"></div>
+			</div>
+		</div>
+		<!--图例-->
+		<div class="Legend" style="z-index: 450;">
+			<div class="Legendname">
+				<a href="javascript:;">图例</a>
+			</div>
+			<div class="LegendR">
+				<div class="Legendcontent" style="display: block;">
+
+				</div>
+				<div class="shrink"></div>
+			</div>
+
+		</div>
+	</div>
+	<div class="copyright">
+		版权所有@2018 金华市政管理处
+	</div>
+
+	<div id="monitor_pop" style="display: none;">
+		<div class="pop-html">
+			<div class="pop-right">
+				<div class="pop-left">
+					<div class="left-content">
+						<div class="svg-box" id="svg_box">
+							<img src="{{ layui.setter.base }}style/res/svg/floodHas.svg">
+						</div>
+						<div class="monitor-type" id="monitor_type">易涝监测点</div>
+					</div>
+				</div>
+
+				<div class="monitor-site">
+					<a href="javascript:void(0);" id="a_point_name">
+						<span id="point_name">环城东路/丰亭路</span>
+						<span class="icon-box"><i class="layui-icon layui-icon-right" style="font-size: 12px; color: #fff;"></i></span>
+					</a>
+				</div>
+				<div class="show-data" id="show_data">
+					<div class="data-float">
+						<div class="data-name">水位<span class="unit">(m)</span></div>
+						<div class="data-value">0.12</div>
+					</div>
+				</div>
+				<div class="svg-img">
+					<img id="svg_img" src="{{ layui.setter.base }}style/res/svg/floodHas.svg">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="point_pop" style="display: none;">
+		<div class="point_line">
+			<div class="pop-body">
+				<div class="pop-title">
+					<span id="point_title">雨水管点信息</span>
+					<a href="javascript:void(0);" class="more-info">
+						<span class="more-img"><i class="layui-icon layui-icon-left" style="font-size: 12px; color: #75b9ff;font-weight: bold; height: 14px; line-height: 14px;display: inline-block;"></i></span>
+						<span>更多详情</span>
+					</a>
+				</div>
+				<div class="pop-content">
+					<div class="value-float">
+						<div class="attr">管线性质</div>
+						<div class="val" id="point_gxxz"></div>
+					</div>
+					<div class="value-float">
+						<div class="attr">附属物</div>
+						<div class="val" id="point_fsw">雨水篦</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">井底深(m)</div>
+						<div class="val" id="point_jds">1.7</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">井室规格(mm)</div>
+						<div class="val" id="point_jsgg">1200X1200</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">地面高程(m)</div>
+						<div class="val" id="point_dmgc">36.00</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">井盖材质</div>
+						<div class="val" id="point_jgcz">铸铁</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">井脖高(mm)</div>
+						<div class="val" id="point_jbg">700</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">井盖规格(mm)</div>
+						<div class="val" id="point_jggg">1400</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">所在道路</div>
+						<div class="val" id="point_szdl">胜利路</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">井室角度</div>
+						<div class="val" id="point_jsjd">3.7°</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">井脖规格(mm)</div>
+						<div class="val" id="point_jbgg">700</div>
+					</div>
+					<div class="value-float">
+						<a href="javascript:void(0);" class="check">
+							<div>
+								<div>
+									<img src="{{ layui.setter.base }}style/res/svg/checkImg.svg">
+								</div>
+								<div>查看图片</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="more-detail">
+				<div>
+					<a href="javascript:void(0);" class="detail-back">
+						<i class="layui-icon layui-icon-right" style="font-size: 12px; color: #fff;font-weight: bold;height: 16px;line-height: 16px;display:inline-block;"></i>
+					</a>
+					<div>
+						<div class="more-float">
+							<div class="attr">物探点号</div>
+							<div class="more-val" id="point_wtdh">1235648</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">偏心井位</div>
+							<div class="more-val" id="point_pxjw">1235648</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">图例角度</div>
+							<div class="more-val" id="point_tljd">1.7</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">X坐标</div>
+							<div class="more-val" id="point_Xzb">254863.235</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">井室附属物代码</div>
+							<div class="more-val" id="point_jsfswdm">YS254863.235</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">探测单位</div>
+							<div class="more-val" id="point_tcdw">浙江省测绘院</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">Y坐标</div>
+							<div class="more-val" id="point_Yzb">254863.235</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">图幅号</div>
+							<div class="more-val" id="point_tfh">YS254863.235</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">探测时间</div>
+							<div class="more-val" id="point_tcsj">2018-08-01 12:25</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">特征点</div>
+							<div class="more-val" id="point_tzd">1.7</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">图上点号</div>
+							<div class="more-val" id="point_tsdh">254863.235</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">备注</div>
+							<div class="more-val" id="point_bz">无</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="check-detail">
+				<div>
+					<a href="javascript:void(0);" class="check-back">
+						<i class="layui-icon layui-icon-left" style="font-size: 12px; color: #fff;font-weight: bold;height: 16px;line-height: 16px;display:inline-block;"></i>
+					</a>
+					<img id="point_img" src="" onerror="this.src='../src/style/res/hasNotImg.png'">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="line_pop" style="display: none;">
+		<div class="point_line">
+			<div class="pop-body">
+				<div class="pop-title">
+					<span id="line_title">雨水管线信息</span>
+					<a href="javascript:void(0);" class="more-info">
+						<span class="more-img"><i class="layui-icon layui-icon-left" style="font-size: 12px; color: #75b9ff;font-weight: bold; height: 14px; line-height: 14px;display: inline-block;"></i></span>
+						<span>更多详情</span>
+					</a>
+				</div>
+				<div class="pop-content line-pop-content">
+					<div class="value-float">
+						<div class="attr">管线性质</div>
+						<div class="val" id="line_gxxz">雨水</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">起点高程(m)</div>
+						<div class="val" id="line_qdgc">雨水篦</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">使用状态</div>
+						<div class="val" id="line_syzt">未使用</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">管径(mm)</div>
+						<div class="val" id="line_gj">36.00</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">终点高程(m)</div>
+						<div class="val" id="line_zdgc">铸铁</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">所在道路</div>
+						<div class="val" id="line_szdl">胜利路</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">管线材质</div>
+						<div class="val" id="line_gxcz">铸铁</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">埋设类型</div>
+						<div class="val" id="line_mslx">3.7°</div>
+					</div>
+					<div class="value-float">
+						<a href="javascript:void(0);" class="check">
+							<div>
+								<div>
+									<img src="{{ layui.setter.base }}style/res/svg/checkVideo.svg">
+								</div>
+								<div>查看视频</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="more-detail">
+				<div>
+					<a href="javascript:void(0);" class="detail-back">
+						<i class="layui-icon layui-icon-right" style="font-size: 12px; color: #fff;font-weight: bold;height: 16px;line-height: 16px;display:inline-block;"></i>
+					</a>
+					<div>
+						<div class="more-float">
+							<div class="attr">起点点号</div>
+							<div class="more-val" id="line_qddh">1235648</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">沟截面宽高</div>
+							<div class="more-val" id="line_gjmkg">1235648</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">探测单位</div>
+							<div class="more-val" id="line_tcdw">浙江省测绘院</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">终点点号</div>
+							<div class="more-val" id="line_zddh">254863.235</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">权属单位</div>
+							<div class="more-val" id="line_qsdw">YS254863.235</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">探测时间</div>
+							<div class="more-val" id="line_tcsj">2018-08-01 12:25</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">起点埋深</div>
+							<div class="more-val" id="line_qdms">254863.235</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">线型</div>
+							<div class="more-val" id="line_xx">YS254863.235</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">备注</div>
+							<div class="more-val" id="line_bz">无</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">终点埋深</div>
+							<div class="more-val" id="line_zdms">1.7</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">探测状态</div>
+							<div class="more-val" id="line_tczt">254863.235</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="check-detail">
+				<div>
+					<a href="javascript:void(0);" class="check-back">
+						<i class="layui-icon layui-icon-left" style="font-size: 12px; color: #fff;font-weight: bold;height: 16px;line-height: 16px;display:inline-block;"></i>
+					</a>
+					<video id="line_video" src="http://www.w3school.com.cn/i/movie.ogg" controls="controls">your browser does not support the video tag</video>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=64eaQ9CnF3g4bwq6R9LAPv8FDWD1NwaN%20&services=&t=20180529182003"></script>
+<script>
+	layui.data.loadMap = function() {
+		layui.use('map', layui.factory('map'));
+	}
+</script>

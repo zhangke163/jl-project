@@ -1,0 +1,109 @@
+.layadmin-user-login-main {
+    background-color: #fff;
+    border-radius: 5px;
+    position: absolute;
+    top: 55px;
+    right: 0;
+}
+
+.layadmin-user-login-header {
+    padding: 40px 0 0 0;
+}
+
+.layadmin-user-login-main {
+    width: 350px;
+}
+
+.layui-form-item {
+    margin-bottom: 20px;
+}
+
+.layui-form-item .layui-form-checkbox[lay-skin=primary] {
+    margin-top: 0;
+}
+
+.layui-input {
+    height: 50px;
+    border-radius: 0;
+}
+
+.layadmin-user-login-icon {
+    line-height: 48px;
+}
+
+.layadmin-user-login-header h2 {
+    font-size: 24px;
+    color: #323232;
+}
+
+.layui-btn {
+    height: 50px;
+    border-radius: 0;
+}
+
+.layui-input:hover,
+.layui-input:focus {
+    border-color: #509eff!important;
+}
+
+.layui-form-checkbox[lay-skin=primary]:hover i {
+    border-color: #87bdff;
+}
+
+.layui-form-checked[lay-skin=primary] i {
+    border-color: #87bdff;
+    background-color: #87bdff;
+    color: #fff;
+}
+
+.layui-btn {
+    background-color: #509eff;
+    font-size: 16px;
+}
+
+.layadmin-link {
+    color: #509eff!important;
+}
+
+html {
+    background-image: linear-gradient(0deg, #429ce9 0%, #499df4 42%, #509eff 100%);
+}
+
+body {
+    position: relative;
+}
+
+.img-bg {
+    position: absolute;
+    width: 1200px;
+    height: 567px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    background: url(res/login-bg.png) center center no-repeat;
+}
+
+.layadmin-user-login {
+    padding: 0;
+}
+
+.new-footer {
+    position: absolute;
+    width: 100%;
+    border-top: 1px solid #fff;
+    overflow: hidden;
+    bottom: -60px;
+}
+
+.new-footer>div {
+    padding-top: 25px;
+    color: #ddecfe;
+}
+
+.footer-left {
+    float: left;
+}
+
+.footer-right {
+    float: right;
+}

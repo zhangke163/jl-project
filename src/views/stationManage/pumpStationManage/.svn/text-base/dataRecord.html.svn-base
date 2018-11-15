@@ -1,0 +1,133 @@
+<title>数据记录</title>
+<script type="text/html" template lay-done="layui.data.loadMap1()">
+  <link rel="stylesheet" href="{{ layui.setter.base }}style/all.css" media="all">
+  <link rel="stylesheet" href="{{ layui.setter.base }}style/dataRecord.css" media="all">
+  <link rel="stylesheet" href="{{ layui.setter.base }}style/font-awesome/css/font-awesome.min.css" media="all">
+  <link rel="stylesheet" href="{{ layui.setter.base }}style/screen.css" media="all">
+</script>
+
+<div class="layui-card layadmin-header">
+  <div class="layui-breadcrumb" lay-filter="breadcrumb">
+    <a lay-href="">主页</a>
+    <a><cite>综合展示</cite></a>
+    <a><cite>泵站管理</cite></a>
+    <a><cite>数据记录</cite></a>
+  </div>
+</div>
+
+<div class="layui-fluid new-fluid">
+	<div class="layui-row layui-col-space15">
+		<div class="layui-col-md12">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>监测数据统计</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+					<div class="layui-tab monitor-data-tab">
+					  <ul class="layui-tab-title">
+					    <li class="layui-this">金龙湾</li>
+					    <li>西关</li>
+					    <li>公安分局泵站</li>
+					    <li>公交桥泵站</li>
+					  </ul>
+					  <div class="layui-tab-content monitor_data" id="data_record">
+					    <div class="layui-tab-item layui-show"></div>
+	    	    	<div class="layui-tab layui-tab-card new-tab-card tab-0">
+	        		  <ul class="layui-tab-title new-tab-title">
+	        		    <li class="layui-this">泵井液位</li>
+	        		    <li>PH值</li>
+	        		    <li>COD</li>
+	        		    <li>氨氮</li>
+	        		    <li>总磷</li>
+	        		    <li>总氮</li>
+	        		  </ul>
+	        		</div>
+					    <!-- <div class="layui-tab-item">2</div>
+					    <div class="layui-tab-item">3</div>
+					    <div class="layui-tab-item">4</div> -->
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-md12">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>数据列表</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+          <div>
+          	<div class="more-data">
+          		<form class="layui-form" action="" lay-filter="search-form">
+          			<div class="new-form-item">
+          				<div class="layui-input-block new-input">
+          					<input type="text" class="layui-input date-box" id="test1" placeholder="请选择时间">
+          					<i class="layui-icon layui-icon-date" style="font-size: 20px; position: absolute; top: 9px; left: 9px;"></i>
+          				</div>
+          			</div>
+          			
+		      			<div class="new-form-item">
+		      				<div class="layui-input-block new-input">
+		      					<select name="type">
+							        <option value="">所有泵站</option>
+							        <option value="0">泵站1</option>
+							        <option value="1">泵站2</option>
+							        <option value="2">泵站3</option>
+							        <option value="3">泵站4</option>
+							        <option value="4">泵站5</option>
+							      </select>
+		      				</div>
+		      			</div>
+		      			<div class="new-form-item">
+		      				<div class="layui-input-block new-input">
+		      					<select name="persons_responsible">
+							        <option value="">所有数据类型</option>
+							        <option value="0">类型1</option>
+							        <option value="1">类型2</option>
+							        <option value="2">类型3</option>
+							        <option value="3">类型4</option>
+							        <option value="4">类型5</option>
+							      </select>
+		      				</div>
+		      			</div>
+		      			<div class="new-form-item form-item-small">
+	      			    <div class="layui-input-block new-input">
+	      			      <button class="layui-btn" lay-submit lay-filter="formDemo">查询</button>
+	      			    </div>
+	      			  </div>
+	      			  <div class="layui-clear"></div>
+          		</form>
+          		<div class="print-box">
+          			
+          			<button class="print"><i class="fa fa-print" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>打印</button>
+          			<button class="export"><i class="fa fa-share-square-o" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>导出</button>
+          			<button class="export"><i class="fa fa-plus-circle" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>添加</button>
+          			<div class="layui-clear"></div>
+          		</div>
+          		<div>
+      			    <table class="layui-hide" id="test"></table>
+          		</div>
+          	</div>
+          </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="layui-footer footer footer-demo new-footer-demo">
+	<div class="layui-main new-footer">版权所有@2018 金华市政管理处</div>
+</div>
+
+<script>
+	layui.data.loadMap1=function(){
+		//加载 controller 目录下的对应模块
+		layui.use('dataRecord', layui.factory('dataRecord'));
+	}
+</script>

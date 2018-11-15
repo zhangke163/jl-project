@@ -1,0 +1,147 @@
+.copyright {
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    box-shadow: 0px 1px 0px 0px rgba(224, 224, 224, 0.3);
+    /* font-family: MicrosoftYaHei; */
+    font-size: 14px;
+    color: #888888;
+    background: #fff;
+}
+
+.top-box {
+    height: 160px;
+    width: 100%;
+}
+
+.layui-fluid:nth-of-type(3) {
+    height: calc(100% - 285px);
+}
+
+.layui-fluid:nth-of-type(3) .layui-row {
+    height: 100%;
+}
+
+#times {
+    height: 38px;
+    float: left;
+}
+
+.bottom-box {
+    overflow: hidden;
+    background: #F2F2F2;
+}
+
+.bottom-box .photo-box {
+    width: 400px;
+    height: 100%;
+    float: left;
+    background: #FFFFFF;
+}
+
+.titleBox {
+    width: 100%;
+    height: 38px;
+    border-bottom: 1px solid #e0e0e0;
+    margin: 0 auto;
+    line-height: 39px;
+}
+
+.line {
+    width: 5px;
+    height: 16px;
+    background-color: #0095ff;
+    position: absolute;
+    top: 12px;
+}
+
+.titleBox h2 {
+    font-size: 16px;
+    color: #323232;
+    padding-left: 10px;
+    letter-spacing: 1px;
+}
+
+.time-line {
+    height: 4px;
+    background: #018152;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 42px;
+}
+
+.line-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: url(../../src/style/res/confirms.png);
+    position: absolute;
+    top: -18px;
+}
+
+.line-circle:nth-child(1) {
+    left: -16px;
+}
+
+.line-circle:nth-child(2) {
+    left: calc(33.33% - 16px);
+}
+.line-circle:nth-child(3) {
+    left: calc(66.66% - 16px);
+}
+.line-circle:nth-child(4) {
+    right: 0;
+}
+
+.active {
+    background: url(../../src/style/res/ings.png);
+}
+
+.line-circle h3 {
+    display: block;
+    width: 92px;
+    height: 15px;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0px;
+    letter-spacing: 1px;
+    color: #888888;
+    position: absolute;
+    top: 56px;
+    margin-left: -20px;
+}
+.line-circle h3.fourFont{
+	margin-left: -13px;
+}
+.tableBox {
+    margin: 0 auto;
+    margin-top: 30px;
+    width: calc(100% - 10px);
+    height: calc(100% - 85px);
+    margin-bottom: 15px;
+}
+
+.btns {
+    width: 80px;
+    height: 22px;
+    background-color: #0095ff;
+    border-radius: 3px;
+    color: #ffffff;
+}
+
+.btns:hover {
+    color: #ffffff;
+}
+
+.bottom-box {
+    width: 100%;
+    height: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    background: #fff;
+}
+
+.layui-table-view {
+    border: none;
+}

@@ -1,0 +1,148 @@
+<script type="text/html" template>
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/login.css?v={{ layui.admin.v }}-1" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/new.css" media="all">
+</script>
+<div class="img-bg">
+    <div class="layadmin-user-login layadmin-user-display-show" id="LAY-user-login" style="display: none; position: relative;">
+        <div class="layadmin-user-login-main">
+            <div class="layadmin-user-login-box layadmin-user-login-header">
+                <h2>登录账号</h2>
+            </div>
+            <div class="layadmin-user-login-box layadmin-user-login-body layui-form">
+                <div class="layui-form-item">
+                    <label class="layadmin-user-login-icon layui-icon layui-icon-username" for="LAY-user-login-username"></label>
+                    <input type="text" name="username" id="LAY-user-login-username" lay-verify="required" placeholder="请输入账号名" class="layui-input name">
+                </div>
+                <div class="layui-form-item">
+                    <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
+                    <input type="password" name="password" id="LAY-user-login-password" lay-verify="required" placeholder="请输入密码" class="layui-input pwd">
+                </div>
+                <div class="layui-form-item" style="margin-bottom: 20px;">
+                    <input type="checkbox" name="remember" lay-skin="primary" title="记住密码" id='remember'>
+                    <a lay-href="/user/forget" class="layadmin-user-jump-change layadmin-link">忘记密码？</a>
+                </div>
+                <div class="layui-form-item form-btn">
+                    <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="LAY-user-login-submit">登 录</button>
+                </div>
+                <div class="layui-trans layui-form-item" style="margin-bottom: 50px; color: #aaa;">
+                    <!-- <div>提示：推荐使用谷歌浏览器，体验更佳!</div> -->
+                </div>
+            </div>
+        </div>
+        <div class="new-footer">
+            <div class="footer-left">版权所有：©2018 金华市市政管理处</div>
+            <div class="footer-right">联系电话：0572-8889590</div>
+            <div class="footer-right" style="margin-right: 50px;">技术支持：浙江中海达空间信息技术有限公司</div>
+        </div>
+    </div>
+</div>
+<script>
+layui.use(['admin', 'form', 'user','global'], function() {
+    var $ = layui.$,
+        setter = layui.setter,
+        admin = layui.admin,
+        form = layui.form,
+        router = layui.router(),
+        search = router.search,
+        layer = layui.layer,
+        global = layui.global;
+
+    form.render();
+    //记住密码功能
+    var oUser = $("#LAY-user-login-username");
+    var oPswd = $("#LAY-user-login-password");
+    var oRemember = $("#remember");
+    //页面初始化时，如果帐号密码cookie存在则填充
+    if(getCookie('LAY-user-login-username') && getCookie('LAY-user-login-password')){
+      oUser.val(getCookie('LAY-user-login-username'));
+      oPswd.val(getCookie('LAY-user-login-password'));
+      $('#remember').attr("checked", true); //注意这里使用的是attr()
+      layui.form.render();
+    }
+    //复选框勾选状态发生改变时，如果未勾选则清除cookie
+    oRemember.onchange = function(){
+      if(!this.checked){
+        delCookie('LAY-user-login-username');
+        delCookie('LAY-user-login-password');
+      }
+    };
+    $(".form-btn").click(function() {
+         if(remember.checked){ 
+            setCookie('LAY-user-login-username',oUser.val(),7); //保存帐号到cookie，有效期7天
+            setCookie('LAY-user-login-password',oPswd.val(),7); //保存密码到cookie，有效期7天
+          }
+         login();
+    })
+    $("body").keydown(function(event) {
+        if(event.keyCode == "13") { //keyCode=13是回车键
+            if(remember.checked){ 
+                setCookie('LAY-user-login-username',oUser.val(),7); //保存帐号到cookie，有效期7天
+                setCookie('LAY-user-login-password',oPswd.val(),7); //保存密码到cookie，有效期7天
+              }
+            login();
+        }
+    });
+    //设置cookie
+      function setCookie(name,value,day){
+        var date = new Date();
+        date.setDate(date.getDate() + day);
+        document.cookie = name + '=' + value + ';expires='+ date;
+      };
+       //获取cookie
+      function getCookie(name){
+        var reg = RegExp(name+'=([^;]+)');
+        var arr = document.cookie.match(reg);
+        if(arr){
+          return arr[1];
+        }else{
+          return '';
+        }
+      };
+      //删除cookie
+      function delCookie(name){
+        setCookie(name,null,-1);
+      };
+    function login() {
+
+        $.ajax({
+            url: global.ip.backUrl + 'user/user_login',
+            type: 'post',
+            data: {
+                'username':$(".name").val(),
+                'password':$(".pwd").val(),
+                'logintype':'web'
+            },
+            success: function(res) {
+                if(res.message=="Ok") {
+                    window.role = res.data.user.role;
+                    window.token = res.data.token;
+                    //请求成功后，写入 access_token
+                    layui.data(setter.tableName, {
+                        key: setter.request.tokenName,
+                        value: res.data.token
+                    });
+                    window.location.hash = "/";
+                } else {
+                    layer.msg('用户名密码错误，请重新输入！', {
+                        time: 2000
+                    });
+                    $(".name").val('');
+                    $(".pwd").val('');
+                }
+            },
+            error:function(e){
+                console.log(e);
+            }
+        });
+    }
+
+    //提交
+    form.on('submit(LAY-user-login-submit)', function(obj) {
+
+        //请求登入接口
+        return false;
+
+    });
+
+});
+</script>

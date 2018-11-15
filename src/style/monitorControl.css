@@ -1,0 +1,211 @@
+.dangerous {
+  color: #b70000;
+}
+
+.new-layui-nav {
+	padding: 0 10px;
+	background-color: transparent;
+	color: #888888;
+}
+
+.new-layui-nav .layui-nav-item {
+	line-height: 40px;
+}
+
+.new-layui-nav .layui-this:after, .layui-nav-bar, .layui-nav-tree .layui-nav-itemed:after {
+	height: 2px;
+	background-color: #0095ff;
+}
+
+.new-layui-nav .layui-nav-item a {
+  color: #888888;
+}
+
+.new-layui-nav .layui-nav-item a:hover, .new-layui-nav .layui-this a {
+  color: #323232;
+}
+
+.pump-img-box, .pump-img-text {
+	float: left;
+	box-sizing: border-box;
+}
+
+.pump-img-box {
+	width: 160px;
+}
+
+.pump-img-text {
+	width: calc(100% - 160px);
+	padding: 20px 30px 0 0;
+	text-align: right;
+}
+
+.pump-data {
+	font-size: 28px;
+	color: #337199;
+	letter-spacing: 2px;
+}
+
+.pump-img-box > img {
+	width: 100%;
+}
+
+.pump-data span {
+	font-size: 14px;
+	color: #323232;
+	letter-spacing: 1px;
+}
+
+.pump-name {
+	letter-spacing: 1px;
+	color: #888888;
+}
+
+.water-box {
+	padding: 10px 0 10px 10px;
+	margin-right: -10px;
+}
+
+.water {
+	float: left;
+	width: calc(20% - 20px);
+	/*box-shadow: 0px 1px 0px 0px 
+		rgba(224, 224, 224, 0.3);*/
+	border: solid 1px #ffffff;
+	position: relative;
+	height: 120px;
+	margin-right: 20px;
+	box-sizing: border-box;
+}
+
+.water > div {
+	box-sizing: border-box;
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 35px;
+}
+
+.technics-img {
+	height: 552px;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.sewerageImg-box {
+	height: auto;
+}
+
+.technics-img .img-box {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	/*bottom: 70px;*/
+	width: 100%;
+}
+
+.sewerageImg-box .img-box {
+	position: relative;
+	left: 0;
+	top: 0;
+	transform: translate(0, 0);
+	padding: 20px 20px 10px 20px;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.technics-img .img-box > img {
+	/*height: 400px;*/
+	width: 70%;
+	display: block;
+	margin: 0 auto;
+}
+
+.technics-img .img-box > img.sewerageImg {
+	/*height: 400px;*/
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+.level-info {
+	float: left;
+	text-align: center;
+	margin: 10px;
+}
+
+.level-name {
+	height: 40px;
+	line-height: 40px;
+	background-color: #0095ff;
+	color: #fff;
+	width: 200px;
+}
+
+.level-data {
+	border: solid 1px #e0e0e0;
+	border-top: none;
+	height: 48px;
+	line-height: 48px;
+	font-size: 28px;
+	color: #323232;
+	letter-spacing: 2px;
+}
+
+.level-data > span {
+	font-size: 14px;
+	letter-spacing: 1px;
+}
+
+.lift-pump-info {
+	float: right;
+	margin: 10px;
+}
+
+.lift-pump-info > div {
+	margin-bottom: 10px;
+}
+
+.lift-pump-name, .lift-pump-data {
+	float: left;
+}
+
+.lift-pump-name {
+	height: 50px;
+	line-height: 50px;
+	background-color: #0095ff;
+	color: #fff;
+	width: 80px;
+	text-align: center;
+}
+
+.lift-pump-data {
+	height: 50px;
+	border: solid 1px #e0e0e0;
+	border-left: none;
+	width: 120px;
+	padding-left: 20px;
+	box-sizing: border-box;
+	color: #323232;
+}
+
+.lift-pump-data > div {
+	position: relative;
+}
+
+.hz {
+	top: 3px;
+}
+
+.a {
+	top: -3px;
+}
+
+.new-module {
+	margin-bottom: 30px;
+}
+
+.layui-scroll {
+	height: 142px !important;
+}

@@ -1,0 +1,10 @@
+<title>视频监控</title>
+
+<div class="layui-card layadmin-header">
+  <div class="layui-breadcrumb" lay-filter="breadcrumb">
+    <a lay-href="">主页</a>
+    <a><cite>综合展示</cite></a>
+    <a><cite>污水处理厂管理</cite></a>
+    <a><cite>视频监控</cite></a>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+ <title>城市洪水风险分析</title>
+ <script type="text/html" template  lay-done="layui.data.basisLoad()">
+<style>
+	.layui-row .layui-card{
+		position: relative;
+	}
+	.imgBox{
+		width: 300px;
+		height: 225px;
+		background: pink;
+		position: absolute;
+		left: 0;
+		top:0;
+		bottom: 0;
+		right: 0;
+		margin:auto;
+	}
+</style>
+  <div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+      <a lay-href="">主页</a>
+      <a><cite>监测预警</cite></a>
+      <a><cite>雨水系统</cite></a>
+      <a><cite>淹没分析</cite></a>
+    </div>
+  </div>
+  <div class="layui-fluid">
+		<div class="layui-row">
+			<div class="layui-col-md12 layui-card">
+					<div class="imgBox">
+						<img src="{{ layui.setter.base }}style/res/programmer.png" alt="" />
+						<h1>努力开发中，敬请期待</h1>
+					</div>
+			</div>
+		</div>
+	</div>
+	</script>
+	<script type="text/javascript">
+		layui.data.basisLoad = function(){
+			layui.use(['layer'], function(){
+			var layer = layui.layer;
+			var	$ = layui.$;
+				$(function(){
+					var mHeight = $(document).height()-130;
+					$('.layui-row .layui-card').css('height',mHeight);
+				})
+			})
+		}
+	</script>

@@ -1,0 +1,144 @@
+<title>水质检测</title>
+<script type="text/html" template lay-done="layui.data.loadMap1()">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/all.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/waterMonitor.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/font-awesome/css/font-awesome.min.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/screen.css" media="all">
+</script>
+
+<div class="layui-card layadmin-header">
+  <div class="layui-breadcrumb" lay-filter="breadcrumb">
+    <a lay-href="">主页</a>
+    <a><cite>监测预警</cite></a>
+    <a><cite>污水系统</cite></a>
+    <a><cite>水质监测</cite></a>
+  </div>
+</div>
+
+<div class="layui-fluid new-fluid">
+	<div class="layui-row layui-col-space15">
+		<div class="layui-col-md5">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>最新水质数据</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+					<div class="margin-collapse">
+						<div class="data_show">
+						</div>
+	        	<div class="show-box-bottom">
+	          	<div class="current-time1">
+				    		<span>当前时间：</span>
+				    		<span id="time"></span>
+				    	</div>
+				    	<div class="refresh">
+				    		<a href="javaScript:void(0);">刷新 <i class="layui-icon layui-icon-refresh-3" style="font-size: 12px;"></i></a>
+				    	</div>
+				    	<div class="layui-clear"></div>
+	        	</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-md7">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>24小时水质数据</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+          <div class="margin-collapse">
+          	<div class="layui-tab layui-tab-card new-tab-card">
+		    		  <ul class="layui-tab-title new-tab-title">
+		    		    <li class="layui-this">COD</li>
+		    		    <li>PH值</li>
+		    		    <li>氨氮</li>
+		    		    <li>总磷</li>
+		    		  </ul>
+		    		</div>
+          	<div id="historical_data">
+          		<div></div>
+          		<div style="display: none;"></div>
+          		<div style="display: none;"></div>
+          		<div style="display: none;"></div>
+          	</div>
+          </div>
+        </div>
+			</div>
+		</div>
+		<div class="layui-col-md12">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>数据列表</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+          <div>
+          	<div class="more-data">
+          		<form class="layui-form" action="" lay-filter='search-form'>
+          			<div class="new-form-item">
+          				<div class="layui-input-block new-input">
+          					<input type="text" class="layui-input date-box" id="date" placeholder="请选择时间">
+          					<i class="layui-icon layui-icon-date" style="font-size: 20px; position: absolute; top: 9px; left: 9px;"></i>
+          				</div>
+          			</div>
+          			<div class="new-form-item">
+          				<div class="layui-input-block new-input">
+          					<select name="alarm" id="location">
+    					        <option value="">全部监测点</option>
+    					      </select>
+          				</div>
+          			</div>
+		      			<div class="new-form-item">
+		      				<div class="layui-input-block new-input">
+		      					<select name="type" id="dataType">
+							        <option value="">全部监测指标</option>
+							        <option value="COD">COD</option>
+							        <option value="PH">PH</option>
+							        <option value="氨氮">氨氮</option>
+							        <option value="总磷">总磷</option>
+							      </select>
+		      				</div>
+		      			</div>
+		      			<div class="new-form-item form-item-small">
+                  <div class="new-input">
+                    <div class="new-layui-btn" data-type="dataSearchBtn">查询</div>
+                  </div>
+                </div>
+	      			  <div class="layui-clear"></div>
+          		</form>
+          		<div class="print-box">
+          			
+          			<button class="print"id='print'><i class="fa fa-print" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>打印</button>
+          			<button class="export" id='export'><i class="fa fa-share-square-o" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>导出</button>
+          			<button class="export" id="add"><i class="fa fa-plus-circle" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>添加</button>
+          			<div class="layui-clear"></div>
+          		</div>
+          		<div id='tableP'>
+      			    <table class="layui-hide" id="data_table"></table>
+          		</div>
+          	</div>
+          </div>
+        </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="layui-footer footer footer-demo new-footer-demo">
+	<div class="layui-main new-footer">版权所有@2018 金华市政管理处</div>
+</div>
+
+<script>
+	layui.data.loadMap1=function(){
+		//加载 controller 目录下的对应模块
+		layui.use('waterMonitor', layui.factory('waterMonitor'));
+	}
+</script>

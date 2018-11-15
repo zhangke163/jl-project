@@ -1,0 +1,147 @@
+<title>报警记录</title>
+<script type="text/html" template lay-done="layui.data.loadMap1()">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/all.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/alarmRecord.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/font-awesome/css/font-awesome.min.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/screen.css" media="all">
+</script>
+
+
+<div class="layui-card layadmin-header">
+  <div class="layui-breadcrumb" lay-filter="breadcrumb">
+    <a lay-href="">主页</a>
+    <a><cite>监测预警</cite></a>
+    <a><cite>报警记录</cite></a>
+  </div>
+</div>
+
+<div class="layui-fluid new-fluid">
+	<div class="layui-row layui-col-space15">
+		<div class="layui-col-md5">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>最新报警记录</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+          <div class="margin-collapse">
+          	<div id="data_show" class="data_show">
+          	</div>
+          	<div class="show-box-bottom">
+	          	<div class="current-time1">
+				    		<span>当前时间：</span>
+				    		<span id="time"></span>
+				    	</div>
+				    	<div class="refresh">
+				    		<a href="javaScript:void(0);" id="refresh">刷新 <i class="layui-icon layui-icon-refresh-3" style="font-size: 12px;"></i></a>
+				    	</div>
+				    	<div class="layui-clear"></div>
+          	</div>
+          </div>
+        </div>
+			</div>
+		</div>
+		<div class="layui-col-md7">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>报警类型统计</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+          <div class="margin-collapse">
+          	<div id="type_gather" style="width: 100%; height: 453px;"></div>
+          </div>
+        </div>
+			</div>
+		</div>
+		<div class="layui-col-md12">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>数据列表</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+          <div>
+          	<div class="more-data">
+          		<form class="layui-form" action="" lay-filter="search-form">
+          			<div class="new-form-item">
+          				<div class="layui-input-block new-input">
+          					<input type="text" class="layui-input date-box" id="test1" placeholder="请选择时间">
+          					<i class="layui-icon layui-icon-date" style="font-size: 20px; position: absolute; top: 9px; left: 9px;"></i>
+          				</div>
+          			</div>
+          			<div class="new-form-item">
+          				<div class="layui-input-block new-input">
+          					<select name="alarm" id="location" lay-filter="selectOn">
+    					        <option value="">全部监测点</option>
+    					      </select>
+          				</div>
+          			</div>
+		      			<div class="new-form-item">
+		      				<div class="layui-input-block new-input">
+		      					<select name="type" id="alarmType">
+							        <option value="">全部报警类型</option>
+
+                      <option value="总磷">总磷</option>
+                      <option value="氨氮">氨氮</option>
+                      <option value="水位超标">水位超标</option>
+                      <option value="PH过小">PH过小</option>
+                      <option value="COD超标">COD超标</option>
+                      <option value="流量超标">流量超标</option>
+                      <option value="PH过大">PH过大</option>
+							      </select>
+		      				</div>
+		      			</div>
+		      			<!--<div class="new-form-item">
+		      				<div class="layui-input-block new-input">
+		      					<select name="persons_responsible" id="name" lay-verify="required" lay-search="">
+							        <option value="">全部负责人</option>
+							      </select>
+		      				</div>
+		      			</div>-->
+		      			<div class="new-form-item form-item-small">
+                  <div class="new-input">
+                    <div class="new-layui-btn" data-type="alarmSearchBtn">查询</div>
+                  </div>
+                </div>
+	      			  <div class="layui-clear"></div>
+          		</form>
+                            
+          		<div class="print-box">
+          			
+          			<button class="print" id='print'><i class="fa fa-print" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>打印</button>
+          			<button class="export" id='export'><i class="fa fa-share-square-o" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>导出</button>
+                <button class="export" id="add"><i class="fa fa-plus-circle" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>添加</button>
+          			<div class="layui-clear"></div>
+          		</div>
+          		<div id='tableP'>
+      			    <table class="layui-hide" id="test" lay-filter="data_table"></table>
+
+                <script type="text/html" id="table_btn">
+                  <a class="layui-btn layui-btn-xs new-table-btn" lay-event="check">查看</a>
+                </script>
+          		</div>
+          	</div>
+          </div>
+        </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="layui-footer footer footer-demo new-footer-demo">
+	<div class="layui-main new-footer">版权所有@2018 金华市政管理处</div>
+</div>
+
+<script>
+	layui.data.loadMap1=function(){
+		//加载 controller 目录下的对应模块
+		layui.use('alarmRecord', layui.factory('alarmRecord'));
+	}
+</script>

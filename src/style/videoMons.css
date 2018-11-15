@@ -1,0 +1,34 @@
+.videoBody{
+	width:100%;
+	height: calc(100% - 110px);
+}
+.videoBody .layui-row{
+	width:100%;
+	height: 100%;
+}
+.videoBody .layui-row .layui-card{
+	width:calc(100% - 30px);
+	height: 100%;
+}
+.content-right{
+	width:calc(100% - 279px);
+	height:100%;	
+}
+.right-main{
+	height: calc(100% - 40px);	
+}
+.content-left{
+	background: #ffffff;
+}
+.content-line{
+	float: left;
+	width:15px;
+	height: 100%;
+	background-color:#F2F2F2 ;
+}
+.right-head {
+	background: #ffffff;
+}
+.right-main {
+	background:#ffffff;
+}

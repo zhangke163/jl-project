@@ -1,0 +1,292 @@
+<title>监测监控</title>
+<script type="text/html" template lay-done="layui.data.loadMap1()">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/all.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/monitorControl.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/font-awesome/css/font-awesome.min.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/screen.css" media="all">
+</script>
+
+<div class="layui-card layadmin-header">
+  <div class="layui-breadcrumb" lay-filter="breadcrumb">
+    <a lay-href="">主页</a>
+    <a><cite>综合展示</cite></a>
+    <a><cite>污水处理厂管理</cite></a>
+    <a><cite>监测监控</cite></a>
+  </div>
+</div>
+
+<div class="layui-fluid new-fluid">
+	<div class="layui-row layui-col-space15">
+		<div class="layui-col-md4">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>进水水质数据</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+					<div>
+						<div class="card-module new-module">
+          		<div class="module-name">进水PH值</div>
+          		<div class="module-num all-num dangerous">8.03</div>
+          	</div>
+          	<div class="card-module new-module">
+          		<div class="module-name">进水COD</div>
+          		<div class="module-num all-num dangerous">150.94<span class="unit">mg/L</span></div>
+          	</div>
+          	<div class="card-module new-module">
+          		<div class="module-name">进水氨氮</div>
+          		<div class="module-num all-num dangerous">24.23<span class="unit">mg/L</span></div>
+          	</div>
+          	<div class="card-module new-module">
+          		<div class="module-name">进水总磷</div>
+          		<div class="module-num all-num dangerous">2.47<span class="unit">mg/L</span></div>
+          	</div>
+          	<div class="card-module new-module">
+          		<div class="module-name">进水总氮</div>
+          		<div class="module-num all-num dangerous">35.61<span class="unit">mg/L</span></div>
+          	</div>
+          	<div class="layui-clear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-md4">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>出水水质数据</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+					<div>
+						<div class="card-module new-module">
+          		<div class="module-name">出水PH值</div>
+          		<div class="module-num all-num">6.35</div>
+          	</div>
+          	<div class="card-module new-module">
+          		<div class="module-name">出水COD</div>
+          		<div class="module-num all-num">19.67<span class="unit">mg/L</span></div>
+          	</div>
+          	<div class="card-module new-module">
+          		<div class="module-name">出水氨氮</div>
+          		<div class="module-num all-num">0.26<span class="unit">mg/L</span></div>
+          	</div>
+          	<div class="card-module new-module">
+          		<div class="module-name">出水总磷</div>
+          		<div class="module-num all-num">0.03<span class="unit">mg/L</span></div>
+          	</div>
+          	<div class="card-module new-module">
+          		<div class="module-name">出水总氮</div>
+          		<div class="module-num all-num dangerous">6.72<span class="unit">mg/L</span></div>
+          	</div>
+          	<div class="layui-clear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-md4">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>流量数据</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+					<div>
+						<div class="card-module new-module set-col-12">
+          		<div class="module-name">
+          			<span>进水总流量</span>
+          			<div class="dynamic-data">6185896</div>
+          		</div>
+          		<div class="module-num all-num">7762.44<span class="unit">m³/h</span></div>
+          	</div>
+						<div class="card-module new-module set-col-12">
+          		<div class="module-name">
+          			<span>进水总流量</span>
+          			<div class="dynamic-data">30189908</div>
+          		</div>
+          		<div class="module-num all-num">10506.03<span class="unit">m³/h</span></div>
+          	</div>
+          	<div class="layui-clear"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-md12">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>厂外在线监测</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+					<div class="layui-carousel layadmin-carousel layadmin-shortcut layui-scroll">
+            <div carousel-item>
+            	<div class="water-box">
+  	          	<div class="water">
+  	          		<div>
+  	          			<div class="module-name">婺剧院北检查井</div>
+  	          			<div class="module-num all-num">0.26<span class="unit">m</span></div>
+  	          		</div>
+  	          	</div>
+  	          	<div class="water">
+  	          		<div>
+  	          			<div class="module-name">东阳街梅溪桥北检查井</div>
+  	          			<div class="module-num all-num">0.26m<span class="unit">m</span></div>
+  	          		</div>
+  	          	</div>
+  	          	<div class="water">
+  	          		<div>
+  	          			<div class="module-name">环城南路东市街检查井</div>
+  	          			<div class="module-num all-num dangerous">0.65<span class="unit">m</span></div>
+  	          		</div>
+  	          	</div>
+  	          	<div class="water">
+  	          		<div>
+  	          			<div class="module-name">金星街G330检查井</div>
+  	          			<div class="module-num all-num">0.26m<span class="unit">m</span></div>
+  	          		</div>
+  	          	</div>
+  	          	<div class="water">
+  	          		<div>
+  	          			<div class="module-name">李渔桥下检查井</div>
+  	          			<div class="module-num all-num">0.26m<span class="unit">m</span></div>
+  	          		</div>
+  	          	</div>
+  	          	<div class="layui-clear"></div>
+  	          </div>
+              <div class="water-box">
+  	          	<div class="water">
+  	          		<div>
+  	          			<div class="module-name">双龙南街二环路检查井</div>
+  	          			<div class="module-num all-num">0.26<span class="unit">m</span></div>
+  	          		</div>
+  	          	</div>
+  	          	<div class="water">
+  	          		<div>
+  	          			<div class="module-name">桐溪污水干管检查井</div>
+  	          			<div class="module-num all-num">0.26m<span class="unit">m</span></div>
+  	          		</div>
+  	          	</div>
+  	          	<div class="water">
+  	          		<div>
+  	          			<div class="module-name">婺剧院南检查井</div>
+  	          			<div class="module-num all-num dangerous">0.65<span class="unit">m</span></div>
+  	          		</div>
+  	          	</div>
+  	          	<div class="water">
+  	          		<div>
+  	          			<div class="module-name">永济桥北桥头检查井</div>
+  	          			<div class="module-num all-num">0.26m<span class="unit">m</span></div>
+  	          		</div>
+  	          	</div>
+  	          	<div class="water">
+  	          		<div>
+  	          			<div class="module-name">永济桥南桥头检查井</div>
+  	          			<div class="module-num all-num">0.26m<span class="unit">m</span></div>
+  	          		</div>
+  	          	</div>
+  	          	<div class="layui-clear"></div>
+  	          </div>
+            </div>
+          </div>
+				</div>
+			</div>
+		</div>
+		<div class="layui-col-md12">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>工艺总图</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+					<div class="technics-img sewerageImg-box">
+						<!-- <div class="level-info">
+							<div class="level-name">泵井液位</div>
+							<div class="level-data">6.81<span>m</span></div>
+						</div>
+						<div class="lift-pump-info">
+							<div>
+								<div class="lift-pump-name">1#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">2#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">3#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">4#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">5#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">6#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">7#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+						</div> -->
+						<div class="img-box">
+							<img class="sewerageImg" src="../src/style/res/sewerage.png">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="layui-footer footer footer-demo new-footer-demo">
+	<div class="layui-main new-footer">版权所有@2018 金华市政管理处</div>
+</div>
+
+<script>
+	layui.data.loadMap1=function(){
+		//加载 controller 目录下的对应模块
+		layui.use('monitorControl', layui.factory('monitorControl'));
+	}
+</script>

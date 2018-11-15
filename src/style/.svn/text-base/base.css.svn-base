@@ -1,0 +1,171 @@
+a, address, b, big, blockquote, body, center, cite, code, dd, del, div, dl, dt, em, fieldset, font, form, h1, h2, h3, h4, h5, h6, html, i, iframe, img, ins, label, legend, li, ol, p, pre, small, span, strong, u, ul, var,body {
+    margin: 0;
+    padding: 0
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+    display: block
+}
+
+hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+}
+
+button, html input[type=button], input[type=submit] {
+    -webkit-apperance: button;
+    cursor: pointer
+}
+
+button[disabled], html input[disabled] {
+    cursor: default
+}
+
+ol, ul {
+    list-style: none
+}
+
+img {
+    border: 0;
+    vertical-align: middle
+}
+
+em, i, u,b,s {
+    font-style: normal
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.al {
+    text-align: left
+}
+
+.ac {
+    text-align: center
+}
+
+.ar {
+    text-align: right
+}
+
+.hide {
+    display: none
+}
+
+.clear, .clr {
+    display: block;
+    overflow: hidden;
+    clear: both;
+    height: 0;
+    line-height: 0;
+    font-size: 0
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden
+}
+
+.clearfix {
+    zoom: 1
+}
+
+.dorpdown {
+    position: relative
+}
+
+.dorpdown-layer {
+    display: none;
+    position: absolute
+}
+
+.dorpdown:hover .dorpdown-layer, .hover .dorpdown-layer {
+    display: block
+}
+
+.cw-icon {
+    position: relative;
+    cursor: default;
+    zoom: 1
+}
+
+.cw-icon .i, .cw-icon i {
+    display: block;
+    position: absolute;
+    overflow: hidden;
+
+}
+
+.w {
+    /* ���� ���Ҿ��ж���*/
+    width: 1225px;
+    margin: 0 auto
+}
+
+.root61 .w {
+    width: 1225px
+}
+
+body {
+    /*font: 12px/150% Arial, Verdana, "\5b8b\4f53";*/
+    color: #666;
+    background: #fff
+}
+
+a {
+    color: #666;
+    text-decoration: none !important;
+}
+
+b{
+    float: right;
+   font-style: normal;
+    color: #9f9f9f;
+}
+*{
+    font-family:"Microsoft YaHei","΢���ź�",'\65B0\5B8B\4F53','\5B8B\4F53',Verdana;
+}
+.cle{
+    overflow: hidden;
+}
+.font-blue{
+    color:  #357ce7;
+}
+.font-red{
+    color:  #d72020;;
+}
+.back-orange{
+	background: #ffbb00;
+}
+.back-green{
+	background: #27cb1b;
+}
+.back-red{
+	background: #d72020;
+}
+ .layui-btn-green{
+                background-color: #21b616;
+                color: #fff;
+            }
+            .layui-btn-blue{
+                background-color: #357ce7 !important;
+                            }
+ .layui-btn-orange{
+                background-color: #ffbb00 !important; 
+                
+            }
+            .layui-btn-grey{
+                background-color: #d7d7d8 !important;
+                color: #000 !important;
+            }
+          

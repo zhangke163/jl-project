@@ -1,0 +1,65 @@
+<title>新建任务</title>
+<script type="text/html" template lay-done="layui.data.basisLoad()">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/all.css" media="all">
+  <link rel="stylesheet" href="{{ layui.setter.base }}style/taskReceive.css" />
+  <link rel="stylesheet" href="{{ layui.setter.base }}style/screen.css" />
+</script>
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        <a><cite>运维管理</cite></a>
+        <a><cite>任务审核</cite></a>
+    </div>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-row">
+        <div class="layui-col-md12 layui-card" style='height: 160px;padding-left: 10px;padding-right: 10px;'>
+            <div class="titleBox">
+                <div class="line"></div>
+                <h2>任务流程状态</h2>
+            </div>
+            <div class="time-line" style='width: 83.3%;'>
+                <div class="line-circle">
+                    <h3>巡查员上报</h3>
+                </div>
+                <div class="line-circle">
+                    <h3>养护员养护</h3>
+                </div>
+                <div class="line-circle">
+                    <h3>监理已核查</h3>
+                </div>
+                <div class="line-circle active">
+                    <h3 class='fourFont'>科室审核</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="layui-fluid" style='margin-top:-15px;'>
+    <div class="layui-row">
+        <div class="layui-col-md12 layui-card bottom-box">
+            <div class="titleBox">
+                <div class="line"></div>
+                <h2 style='float: left;'>待处理任务</h2>
+            </div>
+            <div class="tableBox" style='overflow-y:auto;'>
+                <table class="layui-hide" id="test" lay-filter="viewB"></table>
+                <script type="text/html" id="barDemo">
+                    <a class="layui-btn layui-btn-primary layui-btn-xs btns" lay-event="detail" style='border:0;'>查看并审核</a>
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="copyright">
+    版权所有@2018 金华市政管理处
+</div>
+<script type="text/javascript">
+    layui.data.basisLoad = function () {
+        //加载 controller 目录下的对应模块
+        layui.use('taskReceive', layui.factory('taskReceive'));
+
+
+    }
+</script>

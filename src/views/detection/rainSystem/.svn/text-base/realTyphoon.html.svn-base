@@ -1,0 +1,31 @@
+ <title>实时雨晴</title>
+ <script type="text/html" template  lay-done="layui.data.basisLoad()">
+ 	<link rel="stylesheet" href="{{ layui.setter.base }}style/flash.css" media="all">
+  <div class="layui-card layadmin-header fill-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+      <a lay-href="">主页</a>
+      <a><cite>监测预警</cite></a>
+      <a><cite>雨水系统</cite></a>
+      <a><cite>实时台风</cite></a>
+    </div>
+  </div>
+  <div class="layui-fluid fluid-fill">
+		<div class="layui-row row-fill">
+			<div class="layui-col-md12 layui-card card-fill">
+				<iframe src="http://60.191.198.108:8086/map/FloodPublish.aspx?MenuId=5"></iframe>	
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/javascript">
+	layui.data.basisLoad = function(){
+		layui.use(['layer'], function(){
+		var layer = layui.layer;
+		var	$ = layui.$;
+			$(function(){
+				// var mHeight = $(document).height()-130;
+				// $('.layui-row .layui-card').css('height',mHeight);
+			})
+		})
+	}
+</script>

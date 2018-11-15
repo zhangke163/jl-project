@@ -1,0 +1,21 @@
+<style>
+	.result_container {
+		height: 240px;
+		bottom: 0;
+		overflow: scroll;
+		width: 650px;
+	}
+	 .layui-table-view .layui-table{
+	 	width: 650px;
+	 }
+</style>
+
+<div class="analysisTool" style="padding: 5px;">
+	<canvas id="canvas-container" style="width:650px;height: 430px; background-color: #FFFFFF;"></canvas>
+	<div class="result_container">
+		<table id="analysisResult" lay-filter="analysis"></table>
+	</div>
+</div>
+<script type="text/html" id="tableTool">
+	<a class="layui-btn layui-btn-xs layui-btn-primary" lay-event="locate">定位</a>
+</script>

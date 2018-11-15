@@ -1,0 +1,145 @@
+.layui-fluid {
+    height: calc(100% - 110px);
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.leftSide {
+    position: absolute;
+    left: 15px;
+    width: calc(100% - 30px);
+    height: calc(100% - 32px);
+}
+
+.leftSide .layui-card {
+    height: 100%;
+}
+.leftSide .layui-card .layui-card-body{
+    height: calc(100% - 30px);
+}
+.menu-body{
+    width: 480px;
+    height: calc(100% - 60px);
+    margin-left: 5px;
+    margin-top:5px;
+    background-color: #ffffff;
+    border: solid 1px #f1f1f1;
+}
+.menu-title{
+    width: 480px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #008df2;
+}
+.menu-left img{
+    margin-top:10px;
+    margin-left: 15px;
+    margin-right: 10px;
+}
+.menu-left span{
+    font-size: 14px;
+    color: #fff;
+}
+.menu-title .right{
+    width: 100px;
+    border:0;
+    height: 28px;
+    background-color: #ffffff;
+    border-radius: 14px;
+    margin-top:6px;
+    letter-spacing: 1px;
+    color: #008df2;
+    margin-right: 15px;
+    cursor: pointer;
+}
+#menutree-box{
+    width: 480px;
+    height: calc(100% - 80px);
+}
+#menutree{
+    width: 470px;
+    height: calc(100% - 11px);
+    border-bottom:1px solid #f1f1f1;
+    overflow: auto;
+}
+.button-box{
+    width: 480px;
+    height: 40px;
+}
+.button-box button:nth-child(1){
+    border:0;
+    width: 240px;
+    height: 40px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+.button-box button:nth-child(2){
+    border:0;
+    color: #fff;
+    width: 240px;
+    height: 40px;
+    background-color: #008df2;
+    cursor: pointer;
+}
+/*改变树样式*/
+.ztree * {
+    font-size: 14px;
+}
+
+.ztree li {
+    line-height: 38px;
+}
+.ztree li span.button.center_close{
+    background-position:-126px -30px;
+}
+.ztree li a{
+    height: 38px;
+}
+.ztree li span.button.switch{
+    height: 38px;
+}
+.ztree li span.button.roots_close{
+    background-position:-126px 10px;
+}
+.ztree li span.button.bottom_close{
+    background-position:-126px -70px; 
+}
+.ztree li span.button.roots_open{
+    background-position:-105px 10px;
+}
+.ztree li span.button.center_open{
+    background-position:-105px -30px;
+}
+.ztree li span.button.bottom_open{
+   background-position:-105px -70px; 
+}
+.ztree li span{
+    line-height: 38px;
+}
+.ztree li a.curSelectedNode{
+    height: 38px;
+}
+.ztree li span.button.add{
+    margin-left:10px;
+    vertical-align:middle;
+}
+.ztree li span.button.remove{
+    margin-left:4px;
+    vertical-align:middle;
+}
+.ztree li span.button.ico_docu{
+    vertical-align:middle;
+    margin-right: 12px;
+}
+.ztree li span.button.center_docu{
+    background-position:-84px -30px;
+}
+.ztree li span.button.ico_close{
+    vertical-align:middle;
+}
+.ztree li span.button.bottom_docu{
+    background-position:-84px -70px;
+}

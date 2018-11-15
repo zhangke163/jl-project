@@ -1,0 +1,85 @@
+.float-md {
+	width: 40%;
+}
+
+.offset-left {
+	width: 60%;
+	height: 50px;
+	line-height: 50px;
+}
+
+.show-name {
+	/*font-family: MicrosoftYaHei;*/
+	color: #323232;
+	overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.show-time {
+	/*font-family: MicrosoftYaHei;*/
+	font-size: 12px;
+	color: #888888;
+	position: relative;
+	top: 4px;
+}
+
+.data-value {
+	color: #0095ff;
+}
+
+.new-form-item {
+  float: left;
+  width: calc(45.2% - 20px);
+  margin-right: 20px;
+}
+
+.form-item-small {
+	width: calc(9.6% - 30px);
+	margin: 0;
+	margin-left: 30px;
+}
+
+#historical_flood {
+	height: 351px;
+}
+
+#historical_flood > div {
+	/*height: 100%;*/
+	width: 100%;
+	height: 351px;
+}
+
+.margin-collapse {
+	height: 351px;
+}
+
+.float-md {
+	padding-right: 15px;
+}
+
+.data_show {
+	height: 316px;
+	overflow: hidden;
+}
+
+.new-tab-card {
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 12px;
+  z-index: 9999;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.layui-tab-card>.new-tab-title {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  height: auto;
+}
+
+.layui-tab-card > .auto-width > li {
+	width: auto;
+}

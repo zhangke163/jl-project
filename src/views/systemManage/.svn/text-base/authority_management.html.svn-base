@@ -1,0 +1,96 @@
+<title>权限管理</title>
+<script type="text/html" template lay-done="layui.data.AuthManagerLoad()">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/zTree/zTreeStyle.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/all.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/authorityMan.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/screen.css" media="all">
+	<div class="layui-card layadmin-header">
+		<div class="layui-breadcrumb" lay-filter="breadcrumb">
+			<a lay-href="">主页</a>
+			<a><cite>系统管理</cite></a>
+			<a><cite>权限管理</cite></a>
+		</div>
+	</div>
+<div class="layui-fluid topbox">
+	<div class="layui-row layui-col-space15">
+			<div class="layui-col-md12">
+				<div class="layui-card">
+					<div class="layui-card-header old-border">
+						<div class="div-border">
+							<span class="span-border"></span>
+							<span>添加角色</span>
+						</div>
+					</div>
+					<div class="layui-card-body" style='width: 95%;margin:0 auto'>
+						<form class="layui-form" action="" lay-filter="component-form-element" id='roleInfo' style='margin-top:-25px;'>
+						
+							<div class="layui-row layui-col-space10 layui-form-item" style='margin-top:30px;'>   
+								<div class="one-input left">
+									<label class="layui-form-label"><span class='star'>*</span>角色名称</label>
+									<div class="layui-input-block">
+										<input type="text" name="name" id='name' lay-verify="required" placeholder="请输入角色名称" autocomplete="off" class="layui-input">
+									</div>
+								</div>
+
+								<div class="two-input left">
+									<label class="layui-form-label">描述</label>
+									<div class="layui-input-block">
+										<input type="text" name="instruction" id='instruction' placeholder="请输入描述文字" autocomplete="off" class="layui-input">
+									</div>
+								</div>
+								<div class="three-input right">
+										<button class="layui-btn" lay-submit lay-filter="addRole" style='background-color: #03b373;width:100px'>添加</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+</div>
+<div class="layui-fluid bottom-box" style='margin-top:-15px;'>
+	<div class="layui-row layui-col-space15 botcons-box">
+			<div class="layui-col-md12 botcons">
+				<div class="layui-card cons">
+					<div class="layui-card-header old-border">
+						<div class="div-border">
+							<span class="span-border"></span>
+							<span>权限配置</span>
+						</div>
+					</div>
+					<div class="layui-card-body" style='width: 95%;margin:0 auto'>
+						<form class="layui-form" action="" lay-filter="component-form-element" id='ry-info' style='margin-top:-25px;'>
+							<div class="layui-row layui-col-space10 layui-form-item" id='role-box' style='margin-top:30px;'>
+								<div class="select-box">
+										<select id="role" name="roleId" lay-filter="role">
+											<option value="">请选择角色</option>
+										</select>
+								</div>
+								<div class="del-box">
+										<button id="btn_deleteRole" class="layui-btn" lay-submit lay-filter="deleteRole">删除角色</button>
+								</div>
+							</div>
+							<div class="layui-row layui-col-space10 layui-form-item" id='limits-box'>
+									<div id='limits'>请勾选权限：</div>
+									<button class="layui-btn" lay-submit lay-filter="save" id='saveBtn'>保存权限</button>
+							</div>
+							<div class="layui-row layui-col-space10 layui-form-item">
+								<div class="layui-col-lg3 layui-col-md3">
+									<ul id="authTree" class="ztree" style="overflow-y: auto;"></ul>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+	</div>
+</div>
+<div class="copyright">
+		版权所有@2018 金华市政管理处
+	</div>
+</script>
+<script type="text/javascript">
+    layui.data.AuthManagerLoad = function () {
+        layui.use('authManager', layui.factory('authManager'));
+    }
+</script>

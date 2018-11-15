@@ -1,0 +1,47 @@
+ <title>视频监控</title>
+ <script type="text/html" template  lay-done="layui.data.basisLoad()">
+<style>
+	iframe{
+		border:0;
+	}
+	.copyright{
+		text-align: center;
+	    height: 30px;
+	    line-height: 30px;
+	    box-shadow: 0px 1px 0px 0px rgba(224, 224, 224, 0.3);
+	    /* font-family: MicrosoftYaHei; */
+	    font-size: 14px;
+	    color: #888888;
+	    background: #fff;
+	}
+</style>
+  <div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+      <a lay-href="">主页</a>
+      <a><cite>监测预警</cite></a>
+      <a><cite>视频监控</cite></a>
+    </div>
+  </div>
+ 
+  <div class="layui-fluid">
+		<div class="layui-row">
+			<div class="layui-col-md12 layui-card">
+				<iframe name="iframe_3d" src="{{layui.setter.ip.threeUrl}}" width="100%" height="100%"></iframe>
+			</div>
+			
+		</div>
+	</div>
+	<div class="copyright">版权所有@2018 金华市政管理处</div>
+	</script>
+	<script type="text/javascript">
+		layui.data.basisLoad = function(){
+			layui.use(['layer'], function(){
+			var layer = layui.layer;
+			var	$ = layui.$;
+				$(function(){
+					var mHeight = $(document).height()-160;
+					$('.layui-row .layui-card').css('height',mHeight);
+				})
+			})
+		}
+	</script>

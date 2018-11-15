@@ -1,0 +1,143 @@
+body .pipeName {
+  padding: 0 20px;
+  height: 17px;
+  margin-bottom: 13px;
+}
+body .pipeName > div {
+  height: 17px;
+  line-height: 17px;
+}
+body .pipeName .fr a {
+  font-size: 10px;
+}
+body .pipeName .fl {
+  font-size: 16px;
+  color: #357ce7;
+}
+body .bcgblue {
+  min-height: 204px;
+  width: 100%;
+  background-image: linear-gradient(0deg, #6fa3f3 0%, #357ce7 100%);
+  box-shadow: 0px 1px 21px 0px rgba(123, 135, 152, 0.54);
+  border-radius: 5px;
+  padding: 15px 10px 0px 10px;
+  box-sizing: border-box;
+  color: #fff;
+}
+body .bcgblue .title {
+  height: 45px;
+}
+body .bcgblue .title > span {
+  display: inline-block;
+}
+body .bcgblue .title > span:first-of-type {
+  margin-right: 28px;
+  font-size: 16px;
+}
+body .bcgblue .title #use {
+  width: 60px;
+  height: 20px;
+  border-radius: 10px;
+  border: solid 1px #74fff7;
+  color: #74fff7;
+  text-align: center;
+  font-size: 12px;
+  line-height: 20px;
+}
+body .bcgblue .title #photocode {
+  float: right;
+  font-size: 10px;
+  color: #cfe2fb;
+  text-indent: ;
+  transform: scale(0.9);
+  transform-origin: 0 0;
+  -ms-transform: scale(0.9);
+  /* IE 9 */
+  -ms-transform-origin: 0 0;
+  /* IE 9 */
+  -webkit-transform: scale(0.9);
+  /* Safari 和 Chrome */
+  -webkit-transform-origin: 0 0;
+  /* Safari 和 Chrome */
+  -moz-transform: scale(0.9);
+  /* Firefox */
+  -moz-transform-origin: 0 0;
+  /* Firefox */
+  -o-transform: scale(0.9);
+  /* Opera */
+  -o-transform-origin: 0 0;
+  /* Opera */
+}
+body .bcgblue .content {
+  min-height: 104px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid #8bb9ff;
+}
+body .bcgblue .content > ul {
+  width: 50%;
+  height: 100%;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+body .bcgblue .content > ul:last-of-type {
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+body .bcgblue .content > ul li {
+  min-height: 32px;
+  font-size: 14px;
+  position: relative;
+}
+body .bcgblue .content > ul li span {
+  float: left;
+}
+body .bcgblue .content > ul li .cate {
+  min-width: 58px;
+  margin-right: 10px;
+  color: #cfe3fb;
+}
+body .bcgblue .content > ul li .num {
+  position: absolute;
+  top: 0;
+  font-size: 16px;
+}
+body .bcgblue .position {
+  height: 38px;
+  line-height: 38px;
+  padding: 0 10px;
+}
+body .list {
+  margin-top: 10px;
+  /*border-top: 1px solid #e0e0e0;
+  padding: 20px 20px 15px 20px;*/
+  box-sizing: border-box;
+}
+body .list ul {
+  width: 49.5%;
+  display: inline-block;
+}
+body .list li {
+  height: 32px;
+  color: #000;
+  border-bottom: 1px solid #efefef;
+  position: relative;
+}
+body .list li:last-of-type {
+  border: 0;
+}
+body .list li span {
+  float: left;
+  height: 32px;
+  line-height: 32px;
+}
+body .list li .cate {
+  min-width: 80px;
+  margin-right: 8px;
+  color: #888888;
+  font-size: 12px;
+}
+body .list li .num {
+  position: absolute;
+  top: 0;
+  font-size: 12px;
+}

@@ -1,0 +1,45 @@
+ .layui-input{
+ 	width: 90%;
+ }
+/* .layui-form-item{
+ 	margin-bottom: 0;
+ }*/
+ .layui-form-select .layui-edge{
+ 	right:36px;
+ }
+ .layui-form-select dl{
+ 	min-width: 90%;
+ 	left:22px;
+ }
+ .layui-input-block{
+ 	margin-left: 70px;
+ }
+ .layui-form-label{
+ 	text-align: left;
+ 	width: 57px;
+ 	padding-left:20px;
+ }
+ #btns-box{
+ 	margin-top:20px;
+ }
+ .right{
+ 	float: right;
+ }
+ #confirmBtn{
+ 	margin-right: 24px;
+ }
+ .layui-btn{
+ 	width: 100px;
+ }
+ #clearBtn{
+ 	margin-right: 10px;
+ }
+ .box{
+ 	overflow: hidden;
+ }
+ .row-box{
+ 	width: 90%;
+ 	height: 38px;
+ 	background: pink;
+ 	margin-bottom: 15px;
+ }

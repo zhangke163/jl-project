@@ -1,0 +1,217 @@
+<title>报警记录</title>
+<script type="text/html" template lay-done="layui.data.loadMap1()">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/all.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/alarmRecord.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/font-awesome/css/font-awesome.min.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/screen.css" media="all">
+</script>
+
+<div class="layui-card layadmin-header">
+  <div class="layui-breadcrumb" lay-filter="breadcrumb">
+    <a lay-href="">主页</a>
+    <a><cite>综合展示</cite></a>
+    <a><cite>污水处理厂管理</cite></a>
+    <a><cite>报警记录</cite></a>
+  </div>
+</div>
+
+<div class="layui-fluid new-fluid">
+	<div class="layui-row layui-col-space15">
+		<div class="layui-col-md5">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>最新报警记录</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+          <div class="margin-collapse">
+          	<div>
+          		<div class="data-show-box">
+          			<div class="box-float float-md">
+          				<div class="show-name">厂外液位超标</div>
+          				<div class="show-order">永济桥南桥头</div>
+          			</div>
+          			<div class="box-float float-md offset-left">
+          				<div>
+          					<span class="module-num dangerous">6.52</span>
+          					<span class="unit">m</span>
+          				</div>
+          				<div class="dangerous-info">较警报值超0.03</div>
+          			</div>
+          			<div class="box-float float-sm">
+          				<div class="time-record">12:14:25</div>
+          			</div>
+          			<div class="layui-clear"></div>
+          		</div>
+          		<div class="data-show-box">
+          			<div class="box-float float-md">
+          				<div class="show-name">PH值超标</div>
+          				<div class="show-order">出水口</div>
+          			</div>
+          			<div class="box-float float-md offset-left">
+          				<div>
+          					<span class="module-num dangerous">8.3</span>
+          					<span class="unit"></span>
+          				</div>
+          				<div class="dangerous-info">较警报值超0.3</div>
+          			</div>
+          			<div class="box-float float-sm">
+          				<div class="time-record">11:14:25</div>
+          			</div>
+          			<div class="layui-clear"></div>
+          		</div>
+          		<div class="data-show-box">
+          			<div class="box-float float-md">
+          				<div class="show-name">氨氮超标</div>
+          				<div class="show-order">进水口</div>
+          			</div>
+          			<div class="box-float float-md offset-left">
+          				<div>
+          					<span class="module-num dangerous">15.4</span>
+          					<span class="unit">mg/L</span>
+          				</div>
+          				<div class="dangerous-info">较警报值超10</div>
+          			</div>
+          			<div class="box-float float-sm">
+          				<div class="time-record">11:14:25</div>
+          			</div>
+          			<div class="layui-clear"></div>
+          		</div>
+          		<div class="data-show-box">
+          			<div class="box-float float-md">
+          				<div class="show-name">COD超标</div>
+          				<div class="show-order">进水口</div>
+          			</div>
+          			<div class="box-float float-md offset-left">
+          				<div>
+          					<span class="module-num dangerous">15.5</span>
+          					<span class="unit">mg/L</span>
+          				</div>
+          				<div class="dangerous-info">较警报值超8.6</div>
+          			</div>
+          			<div class="box-float float-sm">
+          				<div class="time-record">10:14:25</div>
+          			</div>
+          			<div class="layui-clear"></div>
+          		</div>
+          	</div>
+          	<div>
+	          	<div class="current-time1">
+				    		<span>当前时间：</span>
+				    		<span id="time"></span>
+				    	</div>
+				    	<div class="refresh">
+				    		<a href="#">刷新 <i class="layui-icon layui-icon-refresh-3" style="font-size: 12px;"></i></a>
+				    	</div>
+				    	<div class="layui-clear"></div>
+          	</div>
+          </div>
+        </div>
+			</div>
+		</div>
+		<div class="layui-col-md7">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>报警类型统计</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+          <div class="margin-collapse">
+          	<div id="type_gather" style="width: 100%; height: 453px;"></div>
+          </div>
+        </div>
+			</div>
+		</div>
+		<div class="layui-col-md12">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>数据列表</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+          <div>
+          	<div class="more-data">
+          		<form class="layui-form" action="" lay-filter="search-form">
+          			<div class="new-form-item">
+          				<div class="layui-input-block new-input">
+          					<input type="text" class="layui-input date-box" id="test1" placeholder="请选择时间">
+          					<i class="layui-icon layui-icon-date" style="font-size: 20px; position: absolute; top: 9px; left: 9px;"></i>
+          				</div>
+          			</div>
+          			<div class="new-form-item">
+          				<div class="layui-input-block new-input">
+          					<select name="alarm">
+    					        <option value="">全部监测点</option>
+    					        <option value="0">监测点1</option>
+    					        <option value="1">监测点2</option>
+    					        <option value="2">监测点3</option>
+    					        <option value="3">监测点4</option>
+    					        <option value="4">监测点5</option>
+    					      </select>
+          				</div>
+          			</div>
+		      			<div class="new-form-item">
+		      				<div class="layui-input-block new-input">
+		      					<select name="type">
+							        <option value="">全部报警类型</option>
+							        <option value="0">类型1</option>
+							        <option value="1">类型2</option>
+							        <option value="2">类型3</option>
+							        <option value="3">类型4</option>
+							        <option value="4">类型5</option>
+							      </select>
+		      				</div>
+		      			</div>
+		      			<!-- <div class="new-form-item">
+		      				<div class="layui-input-block new-input">
+		      					<select name="persons_responsible">
+							        <option value="">全部负责人</option>
+							        <option value="0">负责人1</option>
+							        <option value="1">负责人2</option>
+							        <option value="2">负责人3</option>
+							        <option value="3">负责人4</option>
+							        <option value="4">负责人5</option>
+							      </select>
+		      				</div>
+		      			</div> -->
+		      			<div class="new-form-item form-item-small">
+	      			    <div class="layui-input-block new-input">
+	      			      <button class="layui-btn" lay-submit lay-filter="formDemo">查询</button>
+	      			    </div>
+	      			  </div>
+	      			  <div class="layui-clear"></div>
+          		</form>
+          		<div class="print-box">
+          			
+          			<button class="print"><i class="fa fa-print" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>打印</button>
+          			<button class="export"><i class="fa fa-share-square-o" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>导出</button>
+          			<button class="export"><i class="fa fa-plus-circle" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>添加</button>
+          			<div class="layui-clear"></div>
+          		</div>
+          		<div>
+      			    <table class="layui-hide" id="test"></table>
+          		</div>
+          	</div>
+          </div>
+        </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="layui-footer footer footer-demo new-footer-demo">
+	<div class="layui-main new-footer">版权所有@2018 金华市政管理处</div>
+</div>
+
+<script>
+	layui.data.loadMap1=function(){
+		//加载 controller 目录下的对应模块
+		layui.use('alarmRecord1', layui.factory('alarmRecord1'));
+	}
+</script>

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/usvn/svn/jhzhps-front-3/!svn/ver/488/trunk/start/json/user
+END
+forget.js
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/usvn/svn/jhzhps-front-3/!svn/ver/171/trunk/start/json/user/forget.js
+END
+login.js
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/usvn/svn/jhzhps-front-3/!svn/ver/171/trunk/start/json/user/login.js
+END
+logout.js
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/usvn/svn/jhzhps-front-3/!svn/ver/171/trunk/start/json/user/logout.js
+END
+resetpass.js
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/usvn/svn/jhzhps-front-3/!svn/ver/171/trunk/start/json/user/resetpass.js
+END
+reg.js
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/usvn/svn/jhzhps-front-3/!svn/ver/171/trunk/start/json/user/reg.js
+END
+sms.js
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/usvn/svn/jhzhps-front-3/!svn/ver/171/trunk/start/json/user/sms.js
+END

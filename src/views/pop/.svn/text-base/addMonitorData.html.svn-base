@@ -1,0 +1,51 @@
+<title>报警信息</title>
+	<link rel="stylesheet" href="../../../start/layui/css/layui.css" media="all">
+  <link rel="stylesheet" href="../../../src/style/all.css" media="all">
+  <link rel="stylesheet" href="../../../src/style/addMonitorData.css" media="all">
+  <link rel="stylesheet" href="../../../src/style/font-awesome/css/font-awesome.min.css" media="all">
+<div class="layui-fluid">
+	<div class="layui-card-body">
+		<div>
+			<form class="layui-form" action="" lay-filter="search-form">
+				<div class="new-form-item layer-left">
+				 	<label class="layui-form-label">时间</label>
+					<div class="layui-input-block new-input">
+						<input type="text" class="layui-input date-box" id="test" placeholder="请选择时间" lay-verify="required">
+						<i class="layui-icon layui-icon-date" style="font-size: 20px; position: absolute; top: 9px; left: 9px;"></i>
+					</div>
+				</div>
+  			<div class="new-form-item layer-right">
+  				<label class="layui-form-label">监测点</label>
+  				<div class="layui-input-block new-input">
+  					<select name="alarm" id="location" lay-filter="selectPointer" lay-verify="required">
+			        <option value="">请选择监测点</option>
+			      </select>
+  				</div>
+  			</div>
+  			<div class="new-form-item layer-left">
+  				<label class="layui-form-label">数据类型</label>
+  				<div class="layui-input-block new-input">
+  					<select name="alarm" id="dataType" lay-verify="required">
+			        
+			      </select>
+  				</div>
+  			</div>
+  			<div class="new-form-item layer-right">
+  				<label class="layui-form-label">数据值</label>
+  				<div class="layui-input-block new-input">
+  					<input type="text" class="layui-input" placeholder="" id="dataValue" lay-verify="required" onkeyup="value=value.replace(/[^\d\.]/g,'')" onblur="value=value.replace(/[^\d\.]/g,'')">
+  				</div>
+  			</div>
+  			<div class="new-form-item">
+			    <div class="layui-input-block new-input btn-bottom">
+			      <button class="layui-btn cancle">取消</button>
+			      <button class="layui-btn yes" lay-submit="" lay-filter="formDemo">确认</button>
+			    </div>
+			  </div>
+			</form>
+		</div>
+	</div>
+</div>
+<script src="../../../start/layui/layui.all.js"></script>
+<script src="../../config.js"></script>
+<script src="../../../src/controller/addMonitorData.js"></script>

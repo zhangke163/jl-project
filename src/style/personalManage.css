@@ -1,0 +1,171 @@
+/*改变滚动条样式*/
+::-webkit-scrollbar {
+width: 5px;
+} 
+::-webkit-scrollbar-thumb, ::-webkit-scrollbar-thumb:horizontal {
+border-radius: 6px;
+background: #BDBDBD;
+}
+::-webkit-scrollbar-button {
+display: none;
+} 
+::-webkit-scrollbar-track, ::-webkit-scrollbar-track-piece {
+background: -webkit-gradient(linear,left);
+}
+::-webkit-scrollbar-track-piece {
+background: #FFFFFF;
+}
+
+/*报警记录页面样式*/
+
+.float-sm {
+	width: 26%;
+	text-align: right;
+}
+
+.dangerous {
+	margin: 0;
+	color: #b70000;
+}
+
+.dangerous-info {
+	font-family: MicrosoftYaHei;
+	font-size: 12px;
+	color: #323232;
+}
+
+.time-record {
+	font-family: MicrosoftYaHei;
+	font-size: 12px;
+	color: #888888;
+}
+
+.show-name {
+	font-family: MicrosoftYaHei;
+	font-size: 16px;
+	color: #0095ff;
+}
+
+.show-order {
+	font-family: MicrosoftYaHei;
+	color: #888888;
+	position: relative;
+	top: 6px;
+}
+.new-form-item {
+	float: left;
+	width: calc(18% - 20px);
+	margin-right: 20px;
+}
+
+.form-item-small {
+	width: calc(9.6% - 30px);
+	margin: 0;
+	margin-left: 30px;
+}
+.type-gather-title {
+	height: 20px;
+	line-height: 20px;
+	letter-spacing: 1px;
+	color: #323232;
+	font-family: MicrosoftYaHei;
+	font-size: 18px;
+	text-align: center;
+	margin: 10px auto;
+}
+
+.type-gather-tab .layui-tab-title {
+	box-sizing: border-box;
+}
+
+.type-gather-tab .layui-tab-title li {
+	color: #888888;
+}
+
+.type-gather-tab .layui-tab-title .layui-this {
+	background-color: #f6fbf8;
+	color: #323232;
+}
+
+#type_gather > div {
+	width: 100%;
+	height: 363px;
+}
+.ranking-list{
+	width: 94%;
+	height: 46px;
+	float: left;
+	margin-left: 3%;
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.rank-img{
+	width: 32px;
+	height: 46px;
+	margin-right: 20px;
+	float: left;
+}
+.ranking-list:nth-child(1) .rank-img{
+	background: url(../../src/style/res/first.png) 0px 2px no-repeat;
+}
+.ranking-list:nth-child(2) .rank-img{
+	background: url(../../src/style/res/second.png) 0px 2px no-repeat;
+}
+.ranking-list:nth-child(3) .rank-img{
+	background: url(../../src/style/res/third.png) 0px 2px no-repeat;
+}
+.rank-name{
+	width: 46px;
+	height: 46px;
+	float: left;
+}
+.rank-name h1{
+	font-family: MicrosoftYaHei;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 1px;
+	color: #f7b642;
+}
+.rank-name h2{
+	font-family: MicrosoftYaHei;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 1px;
+	color: #323232;
+}
+.ranking-list:nth-child(2) .rank-name h1{
+	color: #9cb6c7;
+}
+.ranking-list:nth-child(3) .rank-name h1{
+	color: #d2a457;
+}
+.rank-number{
+	float: right;
+	line-height: 46px;
+}
+.rank-number span{
+	float: right;
+	font-size: 14px;
+	letter-spacing: 1px;
+	color: #888888;
+}
+.rank-number h3{
+	float: right;
+	font-size: 28px;
+	letter-spacing: 2px;
+	color: #f7b642;
+}
+.ranking-list:nth-child(2) .rank-number h3{
+	color: #9cb6c7;	
+}
+.ranking-list:nth-child(3) .rank-number h3{
+	color: #d2a457;
+}
+.refresh button{
+	border:0;
+	cursor: pointer;
+	background: transparent;
+	color: #0095ff;
+}

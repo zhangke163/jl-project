@@ -1,0 +1,43 @@
+#device_type {
+	height: 392px;
+}
+
+#device_type > div {
+	/*height: 100%;*/
+	width: 100%;
+	height: 392px;
+}
+
+#device_type_1 {
+	height: 440px;
+}
+
+#device_type_1 > div {
+	/*height: 100%;*/
+	width: 100%;
+	height: 440px;
+}
+
+.margin-collapse {
+	height: 392px;
+}
+
+.new-height {
+	height: 440px;
+}
+
+.card-module {
+	margin-bottom: 35px;
+}
+
+.new-form-item {
+  float: left;
+  width: calc(15% - 20px);
+  margin-right: 20px;
+}
+
+.form-item-small {
+  width: calc(10% - 30px);
+  margin: 0;
+  margin-left: 30px;
+}

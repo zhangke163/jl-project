@@ -1,0 +1,61 @@
+.monitor-data-tab .layui-tab-title {
+	box-sizing: border-box;
+}
+
+.monitor-data-tab .layui-tab-title li {
+	color: #888888;
+}
+
+.monitor-data-tab .layui-tab-title .layui-this {
+	background-color: #fff;
+	color: #323232;
+}
+
+.monitor_data > div.layui-show {
+	width: 100%;
+	height: 372px;
+}
+
+.sewerage-tab > div.layui-show {
+	width: 100%;
+	height: 412px;
+}
+
+.monitor_data {
+	position: relative;
+}
+
+.new-form-item {
+  float: left;
+  width: calc(30.133333333% - 20px);
+  margin-right: 20px;
+}
+
+.form-item-small {
+  width: calc(9.6% - 30px);
+  margin: 0;
+  margin-left: 30px;
+}
+
+.new-tab-card {
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 20px;
+  z-index: 9999;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.layui-tab-card > .new-tab-title {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  height: auto;
+  /*left: 0;
+  transform: translateX(0);*/
+}
+
+.sewerage-tab-card {
+	top: 10px;
+}

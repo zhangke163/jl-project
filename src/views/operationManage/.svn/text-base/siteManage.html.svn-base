@@ -1,0 +1,96 @@
+<script type="text/html" template  lay-done="layui.data.loadMap()">
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/template.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/base.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/map.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/page.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/box.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/test.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/message.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/all.css" />	
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/leaflet.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/L.Control.BetterScale.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/L.Control.MousePosition.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/leaflet.draw.css" />
+
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/all.css" />
+
+	<style type="text/css">
+		.leftSide {
+			position: absolute;
+			left: 15px;
+			width: 410px;
+		}
+		
+		.rightSide {
+			margin-left: 425px;
+		}
+	</style>
+	<div class="layui-card layadmin-header">
+		<div class="layui-breadcrumb" lay-filter="breadcrumb">
+			 <a lay-href="">主页</a>
+		      <a><cite>运维管理</cite></a>
+		      <a><cite>地点管理</cite></a>
+		</div>
+	</div>
+
+	<div class="layui-fluid layadmin-homepage-fluid">
+		<div class='leftSide'>
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>地点列表</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+					<div id="site_left" style="overflow: hidden; position: relative;">
+						<div class="i-input">
+							<input type="text" name="title" placeholder="输入地点名称" autocomplete="off" class="layui-input fl searchInput float-btn" style="width: 285px; height: 40px; line-height: 40px; box-sizing: border-box;">
+							<button class="layui-btn-primary float-btn" id ="querySite">查询</button>
+							<div class="layui-clear"></div>
+						</div>
+						<div class="new-result" style="z-index: 450;display: block;">
+							<div class="layui-tab layui-tab-card">
+								<div class="layui-tab-content">
+									<div id="siteResult"></div>
+									<div id="demo3" style="text-align: center; margin: 10px 0;"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class='rightSide'>
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>地图展示</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+					<div id='siteMap'></div>
+				</div>
+				<div id="imgContainer"></div>
+
+			<div id="videoContainer" style="display: none;">
+
+				<video id="wellVideo" width="600" controls="controls">
+				</video>
+			</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="layui-footer footer footer-demo new-footer-demo">
+		<div class="layui-main new-footer">版权所有@2018 金华市政管理处</div>
+	</div>
+</script>
+<script>
+	layui.data.loadMap=function(){
+		layui.use('siteManage', layui.factory('siteManage'));
+	}
+	
+</script>

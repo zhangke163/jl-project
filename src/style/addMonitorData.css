@@ -1,0 +1,114 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	overflow: hidden;
+}
+
+body {
+	font: 14px MicrosoftYaHei;
+}
+
+.layui-fluid {
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.layui-card-body {
+	padding: 5px 20px 20px 20px;
+	/*font-family: MicrosoftYaHei;*/
+	height: 100%;
+}
+
+.layui-card-body > div {
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.layui-card-body form {
+	height: 100%;
+	overflow: hidden;
+}
+
+.layui-form-label {
+	font-size: 14px;
+	letter-spacing: 1px;
+	color: #323232;
+	width: 60px;
+	padding: 9px 0;
+	text-align: left;
+}
+
+.layer-left {
+	float: left;
+}
+
+.layer-right {
+	float: right;
+}
+
+.layui-clear {
+	clear: both;
+}
+
+.btn-bottom {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+
+.btn-bottom button {
+	width: 100px;
+	height: 38px;
+	border-radius: 3px;
+	font-size: 14px;
+	letter-spacing: 1px;
+	cursor: pointer;
+	outline: none;
+}
+
+.cancle {
+	background-color: #ffffff;
+	border: solid 1px #e0e0e0;
+	color: #bcbcbc;
+}
+
+.yes {
+	background-color: #0095ff;
+	border: none;
+	color: #fff;
+	margin-left: 5px;
+}
+
+.btn-bottom button:hover {
+	opacity: .8;
+  filter: alpha(opacity=80);
+}
+
+.btn-bottom button.cancle:hover {
+	color: #bcbcbc;
+}
+
+.new-form-item {
+	width: 100%;
+	margin-top: 20px;
+}
+
+.new-input {
+  margin-left: 75px;
+}
+
+.layui-form-select dl.layui-anim-upbit {
+	height: 120px;
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	body {
+		font: 14px Helvetica Neue, Helvetica, PingFang SC, 微软雅黑, Tahoma, Arial, sans-serif;
+	}
+}

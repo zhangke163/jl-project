@@ -1,0 +1,98 @@
+<title>视频监控</title>
+<script type="text/html" template lay-done="layui.data.videoLoad()">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/all.css" />
+<link rel="stylesheet" href="{{ layui.setter.base }}style/video/css/zTreeStyle.css?v=3.5.19" />
+<link rel="stylesheet" href="{{ layui.setter.base }}style/video/css/gestyle.css?v=1.0.5" />
+<link rel="stylesheet" href="{{ layui.setter.base }}style/videoMons.css" />
+<style>
+</style>
+ <div class="layui-card layadmin-header">
+   <div class="layui-breadcrumb" lay-filter="breadcrumb">
+     <a lay-href="">主页</a>
+     <a><cite>监测预警</cite></a>
+     <a><cite>视频监控</cite></a>
+   </div>
+ </div>
+
+ <div class="layui-fluid videoBody">
+       <div class="layui-row">
+           <div class="layui-col-md12 layui-card">
+           	<div class="content-main">
+           		<div class="content-left">
+				<div class="ptz">
+					<div class="ptz-control">
+						<div id="up">
+							<a href="javascript:void(0);" onMouseDown="ptz('1');" onMouseUp="ptz('13');" ></a>
+						</div>
+						<div id="right">
+							<a href="javascript:void(0);" onMouseDown="ptz('4');" onMouseUp="ptz('13');" ></a>
+						</div>
+						<div id="down">
+							<a href="javascript:void(0);" onMouseDown="ptz('5');" onMouseUp="ptz('13');" > </a>
+						</div>
+						<div id="left">
+							<a href="javascript:void(0);" onMouseDown="ptz('2');" onMouseUp="ptz('13');" ></a>
+						</div>
+						<div id="center">
+							<a title="云台停止" href="javascript:void(0);" onMouseDown="ptz('8');" onMouseUp="ptz('13');"></a>
+						</div>
+					</div>
+					
+					<div class="speed-control">
+						<div class="speed-name"><span>速度调节</span></div>
+						<div class="speed-in">
+							<input class="speed-num" type="range" min="1" max="9" step="1" value="5" oninput="changeSound('sendSound')" id="sendSound">
+						</div>
+					</div>
+
+					<div class="camera-control">
+						<div id="darken"><a title="变暗" href="javascript:void(0);" onMouseDown="ptz(12);" onMouseUp="ptz(13);"></a></div>
+						<div id="light"><a  title="变亮" href="javascript:void(0);" onMouseDown="ptz(11);" onMouseUp="ptz(13);"></a></div>
+						<div id="focus"><a title="聚焦"  href="javascript:void(0);" onMouseDown="ptz(7);" onMouseUp="ptz(13);"></a></div>
+						<div id="defocus"><a title="散焦"  href="javascript:void(0);" onMouseDown="ptz(9);" onMouseUp="ptz(13);"></a></div>
+						<div id="zoomin"><a title="拉近" href="javascript:void(0);" onMouseDown="ptz(10);" onMouseUp="ptz(13);"></a></div>
+						<div id="zoomout"><a  title="拉远" href="javascript:void(0);" onMouseDown="ptz(6);" onMouseUp="ptz(13);"></a></div>
+					</div>
+				</div>
+				
+				
+				<div class="search-group" >
+					<input class="searchtxt" id="searchkey" type="search" placeholder="搜索" >
+					<span class="searchbtn"><a id="dosearch" title="搜索" href="javascript:void(0);"></a></span>
+				</div>
+		
+				<div id="treemenu" class="treemenu">
+					<ul id="treeview" class="ztree"></ul>
+				</div>
+
+			</div>
+			<div class="content-line"></div>
+			<div class="content-right">
+				<div class="right-head">
+					<div class="playing-title">
+						<span id="playingT"></span>
+					</div>
+					<div class="screen-control">
+						<div id="startlive"><a title="打开直播" href="javascript:void(0)" onclick="startLive();"></a></div>
+						<div id="stoplive"><a title="关闭直播" href="javascript:void(0)" onclick="stopLive();"></a></div>
+					</div>
+				</div>
+				<div class="right-main" id="container" >
+					<div class="player one" id="plugin-container"></div>	
+				</div>
+			</div> 
+           	</div>
+              
+             
+           </div>
+           
+       </div>
+   </div>
+   <div class="copyright">版权所有@2018 金华市政管理处</div>
+   </script>
+<script type="text/javascript">
+    layui.data.videoLoad = function () {
+        //加载 controller 目录下的对应模块
+        layui.use('videoMons', layui.factory('videoMons'));
+    }
+</script>

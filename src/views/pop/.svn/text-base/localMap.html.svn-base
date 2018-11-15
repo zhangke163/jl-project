@@ -1,0 +1,306 @@
+<title>地图定位</title>
+<meta name="renderer" content="webkit">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="stylesheet" href="../../../start/layui/css/layui.css" media="all"/>
+<link rel="stylesheet" href="../../style/template.css" />
+<link rel="stylesheet" href="../../style/animate.css" />
+<link rel="stylesheet" href="../../style/base.css" />
+<link rel="stylesheet" href="../../style/map.css" />
+<link rel="stylesheet" href="../../style/page.css" />
+<link rel="stylesheet" href="../../style/box.css" />
+<link rel="stylesheet" href="../../style/test.css" />
+<link rel="stylesheet" href="../../style/message.css" />
+<link rel="stylesheet" href="../../style/leaflet/leaflet.css" />
+<link rel="stylesheet" href="../../style/leaflet/MarkerCluster.Default.css" />
+<link rel="stylesheet" href="../../style/leaflet/MarkerCluster.css" />
+<link rel="stylesheet" href="../../style/leaflet/leaflet.groupedlayercontrol.css" />
+<link rel="stylesheet" href="../../style/mapPop.css" />
+
+<style type="text/css">
+	#map {
+		position: relative;
+		cursor: pointer;
+		width: 100%;
+		height: 100%;		
+	}
+</style>
+<div class="layui-body" style="top: 0; left: 0;	width: 100%;height: 100%;">
+	<!--地图容器-->
+	<div id="map" ></div>
+	<!--全景容器-->
+
+	<div id="imgContainer"></div>
+
+	<div id="videoContainer" style="display: none;">
+
+		<video id="wellVideo" width="600" controls="controls">
+		</video>
+	</div>
+	<!--图层控制-->
+
+	<!--<div class="layui-form" lay-filter="local" style="display: none;">
+		<input id="featureId" type="hidden" value="{{ d.params.id || '' }}">
+		<input id="layerType" type="hidden" value="{{ d.params.layerType || '' }}">
+	</div>-->
+	<div id="point_pop" style="display: none;">
+		<div class="point_line">
+			<div class="pop-body">
+				<div class="pop-title">
+					<span id="point_title">雨水管点信息</span>
+					<a href="javascript:void(0);" class="more-info">
+						<span class="more-img"><i class="layui-icon layui-icon-left" style="font-size: 12px; color: #75b9ff;font-weight: bold; height: 14px; line-height: 14px;display: inline-block;"></i></span>
+						<span>更多详情</span>
+					</a>
+				</div>
+				<div class="pop-content">
+					<div class="value-float">
+						<div class="attr">管线性质</div>
+						<div class="val" id="point_gxxz"></div>
+					</div>
+					<div class="value-float">
+						<div class="attr">附属物</div>
+						<div class="val" id="point_fsw">雨水篦</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">井底深(m)</div>
+						<div class="val" id="point_jds">1.7</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">井室规格(mm)</div>
+						<div class="val" id="point_jsgg">1200X1200</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">地面高程(m)</div>
+						<div class="val" id="point_dmgc">36.00</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">井盖材质</div>
+						<div class="val" id="point_jgcz">铸铁</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">井脖高(mm)</div>
+						<div class="val" id="point_jbg">700</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">井盖规格(mm)</div>
+						<div class="val" id="point_jggg">1400</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">所在道路</div>
+						<div class="val" id="point_szdl">胜利路</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">井室角度</div>
+						<div class="val" id="point_jsjd">3.7°</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">井脖规格(mm)</div>
+						<div class="val" id="point_jbgg">700</div>
+					</div>
+					<div class="value-float">
+						<a href="javascript:void(0);" class="check">
+							<div>
+								<div>
+									<img src="../../style/res/svg/checkImg.svg">
+								</div>
+								<div>查看图片</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="more-detail">
+				<div>
+					<a href="javascript:void(0);" class="detail-back">
+						<i class="layui-icon layui-icon-right" style="font-size: 12px; color: #fff;font-weight: bold;height: 16px;line-height: 16px;display:inline-block;"></i>
+					</a>
+					<div>
+						<div class="more-float">
+							<div class="attr">物探点号</div>
+							<div class="more-val" id="point_wtdh">1235648</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">偏心井位</div>
+							<div class="more-val" id="point_pxjw">1235648</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">图例角度</div>
+							<div class="more-val" id="point_tljd">1.7</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">X坐标</div>
+							<div class="more-val" id="point_Xzb">254863.235</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">井室附属物代码</div>
+							<div class="more-val" id="point_jsfswdm">YS254863.235</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">探测单位</div>
+							<div class="more-val" id="point_tcdw">浙江省测绘院</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">Y坐标</div>
+							<div class="more-val" id="point_Yzb">254863.235</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">图幅号</div>
+							<div class="more-val" id="point_tfh">YS254863.235</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">探测时间</div>
+							<div class="more-val" id="point_tcsj">2018-08-01 12:25</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">特征点</div>
+							<div class="more-val" id="point_tzd">1.7</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">图上点号</div>
+							<div class="more-val" id="point_tsdh">254863.235</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">备注</div>
+							<div class="more-val" id="point_bz">无</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="check-detail">
+				<div>
+					<a href="javascript:void(0);" class="check-back">
+						<i class="layui-icon layui-icon-left" style="font-size: 12px; color: #fff;font-weight: bold;height: 16px;line-height: 16px;display:inline-block;"></i>
+					</a>
+					<img id="point_img" src="">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="line_pop" style="display: none;">
+		<div class="point_line">
+			<div class="pop-body">
+				<div class="pop-title">
+					<span id="line_title">雨水管线信息</span>
+					<a href="javascript:void(0);" class="more-info">
+						<span class="more-img"><i class="layui-icon layui-icon-left" style="font-size: 12px; color: #75b9ff;font-weight: bold; height: 14px; line-height: 14px;display: inline-block;"></i></span>
+						<span>更多详情</span>
+					</a>
+				</div>
+				<div class="pop-content line-pop-content">
+					<div class="value-float">
+						<div class="attr">管线性质</div>
+						<div class="val" id="line_gxxz">雨水</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">起点高程(m)</div>
+						<div class="val" id="line_qdgc">雨水篦</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">使用状态</div>
+						<div class="val" id="line_syzt">未使用</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">管径(mm)</div>
+						<div class="val" id="line_gj">36.00</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">终点高程(m)</div>
+						<div class="val" id="line_zdgc">铸铁</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">所在道路</div>
+						<div class="val" id="line_szdl">胜利路</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">管线材质</div>
+						<div class="val" id="line_gxcz">铸铁</div>
+					</div>
+					<div class="value-float">
+						<div class="attr">埋设类型</div>
+						<div class="val" id="line_mslx">3.7°</div>
+					</div>
+					<div class="value-float">
+						<a href="javascript:void(0);" class="check">
+							<div>
+								<div>
+									<img src="../../style/res/svg/checkVideo.svg">
+								</div>
+								<div>查看视频</div>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="more-detail">
+				<div>
+					<a href="javascript:void(0);" class="detail-back">
+						<i class="layui-icon layui-icon-right" style="font-size: 12px; color: #fff;font-weight: bold;height: 16px;line-height: 16px;display:inline-block;"></i>
+					</a>
+					<div>
+						<div class="more-float">
+							<div class="attr">起点点号</div>
+							<div class="more-val" id="line_qddh">1235648</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">沟截面宽高</div>
+							<div class="more-val" id="line_gjmkg">1235648</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">探测单位</div>
+							<div class="more-val" id="line_tcdw">浙江省测绘院</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">终点点号</div>
+							<div class="more-val" id="line_zddh">254863.235</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">权属单位</div>
+							<div class="more-val" id="line_qsdw">YS254863.235</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">探测时间</div>
+							<div class="more-val" id="line_tcsj">2018-08-01 12:25</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">起点埋深</div>
+							<div class="more-val" id="line_qdms">254863.235</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">线型</div>
+							<div class="more-val" id="line_xx">YS254863.235</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">备注</div>
+							<div class="more-val" id="line_bz">无</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">终点埋深</div>
+							<div class="more-val" id="line_zdms">1.7</div>
+						</div>
+						<div class="more-float">
+							<div class="attr">探测状态</div>
+							<div class="more-val" id="line_tczt">254863.235</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="check-detail">
+				<div>
+					<a href="javascript:void(0);" class="check-back">
+						<i class="layui-icon layui-icon-left" style="font-size: 12px; color: #fff;font-weight: bold;height: 16px;line-height: 16px;display:inline-block;"></i>
+					</a>
+					<video id="line_video" src="http://www.w3school.com.cn/i/movie.ogg" controls="controls">your browser does not support the video tag</video>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="../../../start/layui/layui.all.js"></script>
+<script src="../../config.js"></script>
+<script src="../../lib/extend/leaflet.js"></script>
+<script src="../../lib/extend/esri-leaflet.js"></script>
+<script src="../../lib/extend/proj4.js"></script>
+<script src="../../lib/extend/proj4leaflet.js"></script>
+<script src="../../controller/mapLocal.js"></script>

@@ -1,0 +1,104 @@
+<script type="text/html" template lay-done="layui.data.loadMap()">
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/template.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/animate.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/base.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/map.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/page.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/box.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/test.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/message.css" />
+
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/leaflet.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/MarkerCluster.Default.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/MarkerCluster.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/leaflet.groupedlayercontrol.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/L.Control.BetterScale.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/L.Control.MousePosition.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/leaflet.groupedlayercontrol.css" />
+	<style type="text/css">
+		.copyright {
+			width: 100%;
+			height: 30px;
+			box-shadow: 0px 1px 0px 0px rgba(224, 224, 224, 0.3);
+			font-size: 14px;
+			color: #888888;
+			background: #fff;
+			line-height: 30px;
+			text-align: center;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+		}
+		
+		.Controllayer label i {
+			height: 14px;
+			width: 14px;
+			display: inline-block;
+			color: rgba(17, 75, 162, 0.85);
+		}
+		
+		.Controllayer input[type="checkbox"]:checked+i,
+		.Controllayer input[type="radio"]:checked+i {
+			background: rgba(17, 75, 162, 0.85);
+			color: #fff;
+		}
+	</style>
+	<div class="layui-body" style="top: 0; left: 0;">
+		<!-- 内容主体区域 -->
+		<div>
+			<!--地图容器-->
+			<div id="map_container"></div>
+			<!--图层控制-->
+			<div class="Controllayer" style="z-index: 450;top:20px;">
+				<div class="Legendname1">
+					<a href="javascript:;"><img src="{{ layui.setter.base }}style/res/图层控制.png" alt=""></a>
+				</div>
+				<div class="LegendR1">
+					<div class="Legendcontent1" style='display:block;'>
+						<form class="" action="">
+							<!--<label> <input type="checkbox" name="like[write]" value="汇水区域"
+                                   checked/><i>✓</i><span>汇水区域</span></label>-->
+							<label><input type="checkbox" name="like[write]" value="污水管线" title="污水管线" 
+								checked><i>✓</i><span>污水管线</span></label>
+							<label><input type="checkbox" name="like[write]" value="泵站" title="泵站"
+                                  checked><i>✓</i><span>泵站</span></label>
+							<label><input type="checkbox" name="like[write]" value="污水处理厂" title="污水处理厂" 
+								checked><i>✓</i><span>污水处理厂</span></label>
+							<!--<label> <input type="checkbox" name="like[write]" value="监测点" title="监测点"
+                                   checked><i>✓</i><span>监测点</span></label>
+						<label><input type="checkbox" name="like[write]" value="液位计" title="液位计"
+                                  checked><i>✓</i><span>液位计</span></label>
+						<label><input type="checkbox" name="like[write]" value="泵站" title="泵站"
+                                  checked><i>✓</i><span>泵站</span></label>
+						<label><input type="checkbox" name="like[write]" value="易涝点" title="易涝点"
+                                  checked><i>✓</i><span>易涝点</span></label>
+						<label><input type="checkbox" name="like[write]" value="污水处理厂" title="污水处理厂" checked><i>✓</i><span>污水处理厂</span></label>
+						<label><input type="checkbox" name="like[write]" value="影像图"
+                                  title="影像图"><i>✓</i><span>影像图</span></label>-->
+						</form>
+					</div>
+					<div class="shrink1"></div>
+				</div>
+
+			</div>
+
+			<div id="imgContainer"></div>
+
+			<div id="videoContainer" style="display: none;">
+
+				<video id="wellVideo" width="600" controls="controls">
+				</video>
+			</div>
+		</div>
+
+	</div>
+	<div class="copyright">
+		版权所有@2018 金华市政管理处
+	</div>
+</script>
+<script type="text/javascript" src="http://api.map.baidu.com/getscript?v=2.0&ak=64eaQ9CnF3g4bwq6R9LAPv8FDWD1NwaN%20&services=&t=20180529182003"></script>
+<script>
+	layui.data.loadMap = function() {
+		layui.use('wsMap', layui.factory('wsMap'));
+	}
+</script>

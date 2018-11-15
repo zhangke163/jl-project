@@ -1,0 +1,192 @@
+.layui-row .layui-card {
+    position: relative;
+}
+
+.imgBox {
+    width: 300px;
+    height: 225px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+
+.botcons-box {
+    height: calc(100% + 15px);
+}
+
+.botcons {
+    height: 100%;
+}
+
+.cons {
+    min-height: 100%;
+    background: #fff;
+    overflow: hidden;
+}
+
+.bottom-box {
+    height: calc(100% - 255px);
+}
+
+/*修改树结构*/
+.ztree * {
+    font-size: 14px;
+}
+
+.ztree li {
+    line-height: 38px;
+}
+
+.ztree li span.button {
+    margin-top: 5px;
+}
+
+.ztree li span.button.switch {
+    height: 40px;
+    margin-top: 0;
+}
+
+.ztree li span.button.roots_open {
+    background-position: -92px 0px;
+}
+
+.ztree li span.button.center_open {
+    background-position: -92px -40px;
+}
+
+.ztree li span.button.bottom_open {
+    background-position: -92px -80px;
+}
+
+.ztree li span.button.roots_close {
+    background-position: -74px 0px;
+}
+
+.ztree li span.button.center_close {
+    background-position: -74px -40px;
+}
+
+.ztree li span.button.bottom_close {
+    background-position: -74px -80px;
+}
+
+#authTree {
+    height: 450px;
+    border: solid 1px #f1f1f1;
+    width: 470px;
+    margin-left: -5px;
+    margin-top: -16px;
+    display: none;
+}
+
+/*修改按钮样式*/
+#btn_deleteRole {
+    width: 100px;
+    height: 40px;
+    background-color: #b70000;
+    border-radius: 3px;
+}
+
+#limits-box {
+    width: 480px;
+    height: 50px;
+    border: solid 1px #f1f1f1;
+    position: relative;
+    display: none;
+}
+
+#limits {
+    width: 106px;
+    height: 50px;
+    font-family: MicrosoftYaHei;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 39px;
+    letter-spacing: 1px;
+    color: #323232;
+    float: left;
+    padding-left: 15px;
+}
+
+#saveBtn {
+    width: 72px;
+    height: 30px;
+    background-color: #0095ff;
+    border-radius: 3px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    line-height: 30px;
+    float: right;
+    margin-top: 10px;
+    margin-right: 20px;
+}
+
+.select-box {
+    width: 480px;
+    margin-left: -5px;
+    float: left;
+}
+
+.del-box {
+    width: 100px;
+    height: 40px;
+    border-radius: 3px;
+    float: right;
+}
+
+#role {
+    width: 480px;
+}
+
+#roleSelect {
+    width: 398px;
+}
+
+#role-box {
+    width: 605px;
+    height: 50px;
+    position: relative;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.three-input {
+    width: 100px;
+    height: 40px;
+    position: relative;
+}
+
+.three-input button {
+    position: absolute;
+    right: 0;
+    top: 5px;
+}
+
+.one-input {
+    width: calc(40% - 152px);
+    height: 40px;
+}
+
+.two-input {
+    width: 60%;
+    height: 40px;
+}
+
+.ztree li span.button.center_docu {
+    background-position: -56px -40px
+}
+
+.ztree li span.button.bottom_docu {
+    background-position: -56px -80px
+}

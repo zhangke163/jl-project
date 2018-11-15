@@ -1,0 +1,239 @@
+<title>易涝点淹没模拟分析</title>
+<script type="text/html" template lay-done="layui.data.loadFloodMap()">
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/base.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/message.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/leaflet.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/L.Control.BetterScale.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/L.Control.MousePosition.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/nouislider.css" />
+
+	<style type="text/css">
+		.mask {
+			z-index: 999;
+			position: absolute;
+			padding: 0;
+			margin: 0;
+			width: 340px;
+			height: 270px;
+			right: 10px;
+			top: 10px;
+			border-radius: 5px;
+			background: rgba(240, 240, 240, 0.8);
+			padding: 5px;
+			box-shadow: -1px 1px 1px #D3D3D3, 1px -1px 1px #D3D3D3;
+		}
+		
+		.toolContainer {
+			position: absolute;
+			padding: 0;
+			margin: 0;
+			width: 340px;
+			height: 220px;
+			right: 10px;
+			top: 60px;
+		}
+		
+		.rangeContainer {
+			position: relative;
+			display: block;
+			padding: 0;
+			margin: 0;
+			height: 33.33px;
+			width: 100%;
+		}
+		
+		.range_head {
+			position: relative;
+			width: 100%;
+			height: 30px;
+			float: left;
+			padding: 0;
+			margin: 0;
+			display: inline-block;
+		}
+		
+		.range_head>cite {
+			position: absolute;
+			left: 20px;
+			bottom: 5px;
+			font-family: MicrosoftYaHei;
+			font-size: 14px;
+			font-style: normal;
+			color: #323231;
+			line-height: 18px;
+			vertical-align: middle;
+		}
+		
+		.range_body {
+			position: relative;
+			width: 100%;
+			height: 40px;
+			float: left;
+			display: inline-block;
+			vertical-align: middle;
+		}
+		
+		.range_foot {
+			position: relative;
+			width: 100%;
+			height: 30px;
+			display: inline-block;
+			line-height: 20px;
+		}
+		
+		.range_foot cite {
+			position: absolute;
+			font-family: MicrosoftYaHei "微软雅黑";
+			font-size: 12px;
+			font-style: normal;
+			line-height: 16px;
+			vertical-align: middle;
+			top: -20px;
+		}
+		
+		.range_min>cite {
+			float: left;
+			left: 20px;
+		}
+		
+		.range_max>cite {
+			float: right;
+			right: 80px;
+		}
+		
+		.noUi-tooltip {
+			display: none;
+		}
+		
+		.range {
+			width: 70%;
+			float: left;
+			left: 20px;
+		}
+		
+		.text {
+			position: absolute;
+			width: 45px;
+			float: right;
+			right: 30px;
+			border: 1px solid rgba(200, 200, 200, 0.8);
+		}
+		
+		.unit {
+			position: absolute;
+			width: 20px;
+			float: right;
+			right: 5px;
+			font-style: normal;
+		}
+		
+		.noUi-handle {
+			inset 0 2px 0px transparent;
+			border: 0 solid transparent;
+			border-radius: 0;
+			background: transparent;
+			cursor: default;
+			box-shadow: inset 0 0 0 transparent;
+		}
+		/*53,157,250*/
+		
+		.noUi-connect {
+			background-image: linear-gradient(90deg, #83c0ff 0%, #3a9bff 100%);
+		}
+		
+		html:not([dir="rtl"]) .noUi-horizontal .noUi-handle {
+			right: 350px;
+			top: 20px;
+		}
+		
+		.noUi-horizontal .noUi-handle {
+			width: 10px;
+			height: 10px;
+		}
+		
+		.noUi-handle {
+			transform: translate(356px, -3px);
+			!important position: relative;
+			border-right: 6px solid transparent;
+			border-bottom: 10px solid rgba(0, 141, 242, 1);
+			border-left: 6px solid transparent;
+		}
+		
+		.noUi-handle:focus {
+			outline: -webkit-focus-ring-color auto 0;
+		}
+		/*.noUi-handle {
+			
+			box-shadow: inset 0 0 1px #FFF, inset 0 1px 7px #EBEBEB, 0 3px 6px -3px #BBB;
+		}*/
+	</style>
+
+	<div class="layui-card layadmin-header">
+		<div class="layui-breadcrumb" lay-filter="breadcrumb">
+			<a lay-href="">主页</a>
+			<a><cite>防汛防涝</cite></a>
+			<a><cite>易涝点淹没模拟分析</cite></a>
+		</div>
+	</div>
+	<div class="layui-fluid new-fluid" style="padding: 0;margin: 0;">
+		<div id="map_container" style="z-index:0;"></div>
+		<div id="imgContainer"></div>
+		<div id="videoContainer" style="display: none;">
+			<video id="wellVideo" width="600" controls="controls">
+			</video>
+		</div>
+		<div class="mask">
+			<form class="layui-form" style="margin-top:5px;">
+				<div class="layui-form-item">
+					<label class="layui-form-label" style="width: 100px;padding: 10px 0;">获取实时数据</label>
+					<div class="layui-input-block">
+						<input type="checkbox" name="open" lay-skin="switch" lay-filter="switchRealTime" lay-text="开启|关闭">
+					</div>
+				</div>
+			</form>
+			<div class="toolContainer">
+				<div class="rangeContainer">
+					<div class="range_head"><cite>降雨量</cite></div>
+					<div class="range_body">
+						<div id="range1" class="range"></div>
+						<input id="txt1" type="text" value="0" class="text"></input>
+						<div class="unit"><cite>mm</cite></div>
+					</div>
+					<div class="range_foot">
+						<div class="range_min"><cite>0</cite></div>
+						<div class="range_max"><cite>300</cite></div>
+					</div>
+				</div>
+				<div class="rangeContainer">
+					<div class="range_head"><cite>河盘桥监测站水位</cite></div>
+					<div class="range_body">
+						<div id="range2" class="range"></div>
+						<input id="txt2" type="text" value="0" class="text"></input>
+						<div class="unit"><cite>m</cite></div>
+					</div>
+					<div class="range_foot">
+						<div class="range_min"><cite>25</cite></div>
+						<div class="range_max"><cite>45</cite></div>
+					</div>
+				</div>
+				<div class="rangeContainer">
+					<div class="range_head"><cite>金华监测站水位</cite></div>
+					<div class="range_body">
+						<div id="range3" class="range"></div>
+						<input id="txt3" type="text" value="0" class="text"></input>
+						<div class="unit"><cite>m</cite></div>
+					</div>
+					<div class="range_foot">
+						<div class="range_min"><cite>25</cite></div>
+						<div class="range_max"><cite>45</cite></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>
+<script>
+	layui.data.loadFloodMap = function() {
+		layui.use('floodSimulator', layui.factory('floodSimulator'));
+	}
+</script>

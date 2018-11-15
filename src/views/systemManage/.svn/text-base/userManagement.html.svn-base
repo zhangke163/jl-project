@@ -1,0 +1,209 @@
+<title>用户管理</title>
+<script type="text/html" template lay-done="layui.data.loadMap1()">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/all.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/flowMonitor.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/font-awesome/css/font-awesome.min.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/userManage.css" media="all">
+     <link rel="stylesheet" href="{{ layui.setter.base }}style/screen.css" media="all">
+</script>
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        <a><cite>系统管理</cite></a>
+        <a><cite>用户管理</cite></a>
+    </div>
+</div>
+<div class="layui-fluid">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header old-border">
+                    <div class="div-border">
+                        <span class="span-border"></span>
+                        <span>添加人员信息</span>
+                    </div>
+                </div>
+                <div class="layui-card-body" style='width: 95%;margin:0 auto'>
+                    <form class="layui-form" action="" lay-filter="component-form-element" id='ry-info' style='margin-top:-25px;'>
+                        <div class="layui-row layui-col-space10 layui-form-item" style='margin-top:30px;'>
+                            <div class="layui-col-lg4">
+                                <label class="layui-form-label"><span class='star'>*</span>用户名</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="username" id='username' lay-verify="required" placeholder="请输入用户名"
+                                        autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-col-lg4">
+                                <label class="layui-form-label"><span class='star'>*</span>所属单位</label>
+                                <div class="layui-input-block">
+                                    <select name="company" id='company' lay-verify="required" lay-filter="aihao">
+                                        <option value=""></option>
+                                        <option value="市政管理处">市政管理处</option>
+                                        <option value="自来水公司">自来水公司</option>
+                                        <option value="开发区">开发区</option>
+                                        <option value="其他">其他</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-col-lg4">
+                                <label class="layui-form-label"><span class='star' id='starRequire'></span>姓名</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="name" id='name' placeholder="" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-row layui-col-space10 layui-form-item">
+                            <div class="layui-col-lg4">
+                                <label class="layui-form-label"><span class='star'>*</span>密码</label>
+                                <div class="layui-input-block">
+                                    <input type="password" name="password" id='password' lay-verify="required"
+                                        placeholder="输入用户密码" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-col-lg4">
+                                <label class="layui-form-label"><span class='star'>*</span>用户角色</label>
+                                <div class="layui-input-block">
+                                    <select name="post" id='userrole' lay-verify="required" lay-filter="userrole">
+                                        <option value="">请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="layui-col-lg4">
+                                <label class="layui-form-label">性别</label>
+                                <div class="layui-input-block">
+                                    <select name="post" id='sex' lay-filter="aihao">
+                                        <option value="">请选择</option>
+                                        <option value="1">男</option>
+                                        <option value="2">女</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-row layui-col-space10 layui-form-item">
+                            <div class="layui-col-lg4">
+                                <label class="layui-form-label"><span class='star'>*</span>确认密码</label>
+                                <div class="layui-input-block">
+                                    <input type="password" name="password" id='qrpsd' lay-verify="required" placeholder="再次输入密码"
+                                        autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-col-lg4">
+                                <label class="layui-form-label"><span class='star'>*</span>联系电话</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="name" id='tel' lay-verify="required" placeholder=""
+                                        autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                            <div class="layui-col-lg4">
+                                <label class="layui-form-label">年龄</label>
+                                <div class="layui-input-block">
+                                    <input type="text" name="age" id='age' placeholder="请输入年龄" autocomplete="off" class="layui-input">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="layui-row layui-col-space10 layui-form-item">
+                            <div class="layui-col-lg12 buts">
+                                <div class="left">注意：默认密码为123456 ，<span class='star'>*</span>带有此标签为必填项</div>
+                                <div class="left tips-box"></div>
+                                <div class="right">
+                                    <button class="layui-btn layui-btn-primary" id='clearBtn'>清空</button>
+                                    <button class="layui-btn" lay-submit lay-filter="addBtn" id='addBtn'>添加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="layui-fluid new-fluid" style='margin-top:-15px;'>
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md12">
+            <div class="layui-card">
+                <div class="layui-card-header old-border">
+                    <div class="div-border">
+                        <span class="span-border"></span>
+                        <span>数据列表</span>
+                    </div>
+                </div>
+                <div class="layui-card-body">
+                    <div class="more-data">
+                        <form class="layui-form" action="" lay-filter="search-form">
+                            <div class="new-form-item">
+                                <div class="layui-input-block new-input">
+                                    <input type="text" name="allname" id='allname' placeholder="请输入姓名" autocomplete="off"
+                                        class="layui-input">
+                                </div>
+                            </div>
+                            <div class="new-form-item">
+                                <div class="layui-input-block new-input">
+                                    <input type="text" name="alltel" id='alltel' placeholder="请输入手机号码" autocomplete="off"
+                                        class="layui-input">
+                                </div>
+                            </div>
+                            <div class="new-form-item">
+                                <div class="layui-input-block new-input">
+                                    <select name="allcompany" id='allcompany'>
+                                        <option value="">请选择单位</option>
+                                        <option value="市政管理处">市政管理处</option>
+                                        <option value="自来水公司">自来水公司</option>
+                                        <option value="开发区">开发区</option>
+                                        <option value="其他">其他</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="new-form-item">
+                                <div class="layui-input-block new-input">
+                                    <select name="allroll" id='allroll'>
+                                        <option value="">请选择用户角色</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="new-form-item">
+                                <div class="layui-input-block new-input">
+                                    <select name="allsex" id='allsex'>
+                                        <option value="">请选择性别</option>
+                                        <option value="1">男</option>
+                                        <option value="2">女</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="new-form-item form-item-small">
+                                <div class="layui-input-block new-input">
+                                    <button class="layui-btn" lay-submit lay-filter="formDemo" data-type='searchBtn' id='searchBtn'>查询</button>
+                                </div>
+                            </div>
+                            <div class="layui-clear"></div>
+                        </form>
+                        <div class="print-box">
+
+                            <button class="print" id='print'><i class="fa fa-print" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>打印</button>
+                            <button class="export"><i class="fa fa-share-square-o" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>导出</button>
+                            <div class="layui-clear"></div>
+                        </div>
+                        <div id='tableP'>
+                            <table class="layui-hide" id="data_table" lay-filter="data_table"></table>
+                            <script type="text/html" id="barDemo">
+                                <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+							  <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+							  <a class="layui-btn layui-btn-xs" lay-event="reset">重置密码</a>
+							</script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="layui-footer footer footer-demo new-footer-demo">
+    <div class="layui-main new-footer">版权所有@2018 金华市政管理处</div>
+</div>
+
+<script>
+    layui.data.loadMap1 = function () {
+        //加载 controller 目录下的对应模块
+        layui.use('userManage', layui.factory('userManage'));
+    }
+</script>

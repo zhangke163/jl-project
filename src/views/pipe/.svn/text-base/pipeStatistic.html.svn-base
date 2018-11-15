@@ -1,0 +1,248 @@
+<title>数据表格的重载 - 数据表格</title>
+<script type="text/html" template lay-done="layui.data.basisLoad()">
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/pipeManage.css" media="all">
+</script>
+<div class="layui-card layadmin-header">
+	<div class="layui-breadcrumb" lay-filter="breadcrumb">
+		<a lay-href="">主页</a>
+		<a><cite>综合展示</cite></a>
+		<a><cite>管网统计信息</cite></a>
+	</div>
+</div>
+<style>
+	.layui-table th,td{
+		text-align: center;
+	}
+</style>
+<div class="layui-fluid">
+	<div class="layui-row layui-col-space15">
+		<div class="layui-col-md12">
+			<div class="layui-card">
+				<!--<div class="layui-card-header">管网属性查询</div>-->
+				<div class="layui-tab" lay-filter="switch">
+					<ul class="layui-tab-title">
+						<li class="layui-this li-one">重点道路</li>
+						<li class="li-two">管径统计</li>
+						<li class="li-two">材质统计</li>
+					</ul>
+					<div class="layui-tab-content">
+						<div class="layui-tab-item layui-show">
+							<div class="layui-card-body">
+								<div class="tabs-box" style='width:100%;overflow: auto;'>
+									<table class="layui-table" style='min-width:1600px;'>
+									<thead>
+										<tr>
+											<th lay-data="{width:150,field:'szdl'}" rowspan="3"></th>
+											<th lay-data="{align:'center'}" width='150' rowspan="3">道路长度（m）</th>
+											<th lay-data="{align:'center'}" width='150' rowspan="3">道路面积（m²）</th>
+											<th lay-data="{align:'center'}" width='150' rowspan="3">雨水管道长度（m）</th>
+											<th lay-data="{align:'center'}" width='150' rowspan="3">污水管道长度（m）</th>
+											<th lay-data="{align:'center'}" colspan="8">管径</th>
+											<th lay-data="{align:'center'}" width='150' rowspan="3">污水井（个）</th>
+											<th lay-data="{align:'center'}" width='150' rowspan="3">雨水井（个）</th>
+											<th lay-data="{align:'center'}" width='150' rowspan="3">雨水篦（个）</th>
+										</tr>
+										<tr>
+											<th lay-data="{align:'center'}" colspan="2">0 - 300（mm）</th>
+											<th lay-data="{align:'center'}" colspan="2">300 - 600（mm）</th>
+											<th lay-data="{align:'center'}" colspan="2">600 - 1000（mm）</th>
+											<th lay-data="{align:'center'}" colspan="2">1000以上（mm）</th>
+										</tr>
+										<tr>
+											<th width='150'>雨水（m）</th>
+											<th width='150'>污水（m）</th>
+											<th width='150'>雨水（m）</th>
+											<th width='150'>污水（m）</th>
+											<th width='150'>雨水（m）</th>
+											<th width='150'>污水（m）</th>
+											<th width='150'>雨水（m）</th>
+											<th width='150'>污水（m）</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>小计</td>
+											<td id='zddl-one'rowspan="3"></td>
+											<td id='zddl-two'rowspan="3"></td>
+											<td id='zddl-three'rowspan="3"></td>
+											<td id='zddl-four'rowspan="3"></td>
+											<td id='zddl-five'></td>
+											<td id='zddl-six'></td>
+											<td id='zddl-seven'></td>
+											<td id='zddl-eight'></td>
+											<td id='zddl-nine'></td>
+											<td id='zddl-ten'></td>
+											<td id='zddl-eleven'></td>
+											<td id='zddl-twelve'></td>
+											<td id='zddl-thirteen'rowspan="3"></td>
+											<td id='zddl-fourteen'rowspan="3"></td>
+											<td id='zddl-fivteen'rowspan="3"></td>
+										</tr>
+										<tr>
+											<td>合计</td>
+											<td id='zddl-hj-one' colspan="2"></td>
+											<td id='zddl-hj-two' colspan="2"></td>
+											<td id='zddl-hj-three' colspan="2"></td>
+											<td id='zddl-hj-four' colspan="2"></td>
+										</tr>
+										<tr>
+											<td>总计</td>
+											<td colspan="8" id='zddl-total'></td>
+										</tr>
+									</tbody>
+								</table>
+								</div>
+								<hr />
+
+								<table class="layui-table" id="sewage-table-zddl"></table>
+							</div>
+						</div>
+						<div class="layui-tab-item">
+							<div class="layui-card-body">
+									<table class="layui-table">
+									<thead>
+										<tr>
+											<th lay-data="{width:150,field:'szdl'}" rowspan="3"></th>
+											<th lay-data="{align:'center'}" colspan="8">管径</th>
+										</tr>
+										<tr>
+											<th lay-data="{align:'center'}" colspan="2">0 - 300（mm）</th>
+											<th lay-data="{align:'center'}" colspan="2">300 - 600（mm）</th>
+											<th lay-data="{align:'center'}" colspan="2">600 - 1000（mm）</th>
+											<th lay-data="{align:'center'}" colspan="2">1000以上（mm）</th>
+										</tr>
+										<tr>
+											<th>雨水（m）</th>
+											<th>污水（m）</th>
+											<th>雨水（m）</th>
+											<th>污水（m）</th>
+											<th>雨水（m）</th>
+											<th>污水（m）</th>
+											<th>雨水（m）</th>
+											<th>污水（m）</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>小计</td>
+											<td id='gjxj-one'></td>
+											<td id='gjxj-two'></td>
+											<td id='gjxj-three'></td>
+											<td id='gjxj-four'></td>
+											<td id='gjxj-five'></td>
+											<td id='gjxj-six'></td>
+											<td id='gjxj-seven'></td>
+											<td id='gjxj-eight'></td>
+										</tr>
+										<tr>
+											<td>合计</td>
+											<td colspan="2" id='gjhj-one'></td>
+											<td colspan="2" id='gjhj-two'></td>
+											<td colspan="2" id='gjhj-three'></td>
+											<td colspan="2" id='gjhj-four'></td>
+										</tr>
+										<tr>
+											<td>总计</td>
+											<td colspan="8" id='gjzj'></td>
+										</tr>
+									</tbody>
+								</table>
+								<hr />
+
+								<table class="layui-table" id="sewage-table-gj"></table>
+								
+							</div>
+						</div>
+						<div class="layui-tab-item">
+							<div class="layui-card-body"><table class="layui-table" > 
+									<thead>
+										<tr>
+											<th lay-data="{width:150,field:'szdl'}" rowspan="3"></th>
+											<th colspan="16">材质</th>
+										</tr>
+										<tr>
+											<th colspan="2">砖</th>
+											<th colspan="2">砖混</th>
+											<th colspan="2">PVC</th>
+											<th colspan="2">PE</th>
+											<th colspan="2">砖石</th>
+											<th colspan="2">钢</th>
+											<th colspan="2">铸铁</th>
+											<th colspan="2">砼</th>
+										</tr>
+										<tr>
+											<th>雨水（m）</th>
+											<th>污水（m）</th>
+											<th>雨水（m）</th>
+											<th>污水（m）</th>
+											<th>雨水（m）</th>
+											<th>污水（m）</th>
+											<th>雨水（m）</th>
+											<th>污水（m）</th>
+											<th>雨水（m）</th>
+											<th>污水（m）</th>
+											<th>雨水（m）</th>
+											<th>污水（m）</th>
+											<th>雨水（m）</th>
+											<th>污水（m）</th>
+											<th>雨水（m）</th>
+											<th>污水（m）</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td>小计</td>
+											<td id='czxj-one'></td>
+											<td id='czxj-two'></td>
+											<td id='czxj-three'></td>
+											<td id='czxj-four'></td>
+											<td id='czxj-five'></td>
+											<td id='czxj-six'></td>
+											<td id='czxj-seven'></td>
+											<td id='czxj-eight'></td>
+											<td id='czxj-nine'></td>
+											<td id='czxj-ten'></td>
+											<td id='czxj-eleven'></td>
+											<td id='czxj-twelve'></td>
+											<td id='czxj-thirteen'></td>
+											<td id='czxj-fourteen'></td>
+											<td id='czxj-fifteen'></td>
+											<td id='czxj-sixteen'></td>
+										</tr>
+										<tr>
+											<td>合计</td>
+						                    <td colspan="2" id='czhj-one'></td>
+						                    <td colspan="2" id='czhj-two'></td>
+						                    <td colspan="2" id='czhj-three'></td>
+						                    <td colspan="2" id='czhj-four'></td>
+						                    <td colspan="2" id='czhj-five'></td>
+						                    <td colspan="2" id='czhj-six'></td>
+						                    <td colspan="2" id='czhj-seven'></td>
+						                    <td colspan="2" id='czhj-eight'></td>
+										</tr>
+										<tr>
+											<td>总计</td>
+											<td colspan="16" id='czzj'></td>
+										</tr>
+									</tbody>
+								</table>
+								<hr/>
+								<table class="layui-table" id="sewage-table-cz"></table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="copyright">
+	版权所有@2018 金华市政管理处
+</div>
+
+<script type="text/javascript">
+	layui.data.basisLoad = function() {
+		//加载 controller 目录下的对应模块
+		layui.use('pipeStatistic', layui.factory('pipeStatistic'));
+	}
+</script>

@@ -1,0 +1,62 @@
+.scroll-box {
+	/*height: 195px;*/
+	height: 191px;
+	overflow: hidden;
+}
+
+.scroll-box .layui-card-body {
+	height: 118px;
+}
+
+.scroll-box .layui-card-body > div {
+	height: 100%;
+}
+
+.scroll-box .card-module {
+	position: relative;
+	margin: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.scroll-box .layui-col-md4 .card-module {
+	width: 33.33333333%;
+}
+
+.scroll-box .layui-col-md5 .card-module {
+	width: 25%;
+}
+
+.scroll-box .layui-col-md3 .card-module {
+	width: 50%;
+}
+
+.layadmin-new-data {
+	height: 428px !important;
+	position: relative;
+}
+
+.echarts-title {
+	/*font-family: MicrosoftYaHei;*/
+	font-size: 18px;
+	color: #323232;
+}
+
+#nav_tab {
+	z-index: 9999;
+}
+
+.data-show {
+	height: 223px;
+	overflow: hidden;
+}
+
+.layui-tab-card > .auto-width > li {
+	width: auto;
+}
+
+.layadmin-new-data .tab-child {
+	height: 100%;
+	width: 100%;
+	display: none;
+}

@@ -1,0 +1,35 @@
+<title>覆土深度分析</title>
+<script type="text/html" template lay-done="layui.data.loadMapOverBurden()">
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/base.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/message.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/leaflet.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/L.Control.BetterScale.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/L.Control.MousePosition.css" />
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/leaflet/leaflet.draw.css" />
+	<style type="text/css">
+		.moreinfo {
+			display: none;
+		}
+	</style>
+
+	<div class="layui-card layadmin-header">
+		<div class="layui-breadcrumb" lay-filter="breadcrumb">
+			<a lay-href="">主页</a>
+			<a><cite>决策辅助</cite></a>
+			<a><cite>覆土分析</cite></a>
+		</div>
+	</div>
+	<div class="layui-fluid new-fluid" style="padding: 0;margin: 0;">
+		<div id="map_container" style="z-index:0;"></div>
+		<div id="imgContainer"></div>
+		<div id="videoContainer" style="display: none;">
+			<video id="wellVideo" width="600" controls="controls">
+			</video>
+		</div>
+	</div>
+</script>
+<script>
+	layui.data.loadMapOverBurden = function() {
+		layui.use('overBurdenAnalysis', layui.factory('overBurdenAnalysis'));
+	}
+</script>

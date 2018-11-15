@@ -1,0 +1,177 @@
+<title>数据表格的重载 - 数据表格</title>
+<script type="text/html" template lay-done="layui.data.basisLoad()">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/pipeManage.css" media="all">
+<div class="layui-card layadmin-header">
+	<div class="layui-breadcrumb" lay-filter="breadcrumb">
+		<a lay-href="">主页</a>
+		<a><cite>综合展示</cite></a>
+		<a><cite>管网的列表信息</cite></a>
+	</div>
+</div>
+<div class="layui-fluid" >
+	<div class="layui-row layui-col-space15">
+		<div class="layui-col-md12">
+			<div class="layui-card">
+				<!--<div class="layui-card-header">管网属性查询</div>-->
+				<div class="layui-tab" lay-filter="test">
+					<ul class="layui-tab-title">
+						<li class="layui-this li-one">污水管井</li>
+						<li class="li-two">污水管线</li>
+						<li class="li-three">雨水管井</li>
+						<li class="li-four">雨水管线</li>
+					</ul>
+					<div class="layui-tab-content">
+						<div class="layui-tab-item layui-show">
+							<div class="layui-card-body">
+								<form class="layui-form">
+									<div class="sewage-btn" style="margin-bottom: 10px;">
+										附属物：
+										<div class="layui-inline">
+											<select id="sewage-fsw" class='layui-input-inline selectField'>
+												<option value="附属物">附属物</option>
+											</select>
+										</div>
+										&nbsp;&nbsp;&nbsp;&nbsp;特征点：
+										<div class="layui-inline">
+											<select id="sewage-tzd" class='layui-input-inline selectField'>
+												<option value="特征点">特征点</option>
+											</select>
+										</div>
+										&nbsp;&nbsp;&nbsp;&nbsp;材质：
+										<div class="layui-inline">
+											<select id="sewage-cz" class='layui-input-inline selectField'>
+												<option value=""></option>
+												<option value="材质">材质</option>
+											</select>
+										</div>
+										&nbsp;&nbsp;&nbsp;&nbsp;所在道路：
+										<div class="layui-inline">
+											<input class="layui-input" id="sewage-szdl" autocomplete="off">
+										</div>
+										&nbsp;&nbsp;&nbsp;&nbsp;<button class="layui-btn" data-type="sewageSearchBtn" style="background: #1E9FFF;">搜索</button>
+									</div>
+								</form>
+								<table class="layui-hide" id="sewage-table-pipe" lay-filter="sewage-table"></table>
+							</div>
+						</div>
+						<div class="layui-tab-item">
+							<div class="layui-card-body">
+								<form class="layui-form" id='gjform'>
+									<div class="sewage-btn1" style="margin-bottom: 10px;">
+										埋设类型：
+										<div class="layui-inline">
+											<select id="sewage-mslx2" class='layui-input-inline selectField'>
+												<option value="埋设类型">埋设类型</option>
+											</select>
+										</div>
+										&nbsp;&nbsp;&nbsp;&nbsp;管径：
+										<div class="layui-inline">
+											<select id="sewage-gj2" class='layui-input-inline selectField'>
+												<option value="9">直线点</option>
+												<option value="10">转折点</option>
+											</select>
+										</div>
+										&nbsp;&nbsp;&nbsp;&nbsp;材质：
+										<div class="layui-inline">
+											<select id="sewage-cz2" class='layui-input-inline selectField'>
+												<option value=""></option>
+												<option value="010">杨洋</option>
+											</select>
+										</div>
+										&nbsp;&nbsp;&nbsp;&nbsp;所在道路：
+										<div class="layui-inline">
+											<input class="layui-input" id="sewage-szdl2" autocomplete="off">
+										</div>
+										&nbsp;&nbsp;&nbsp;&nbsp;<button class="layui-btn" data-type="sewageSearchBtn1" style="background: #1E9FFF;">搜索</button>
+									</div>
+									<div class="lens">管线总长为<span></span>m</div>
+								</form>
+								<table class="layui-hide" id="sewage-table-pipe1" lay-filter="sewage-table1"></table>
+							</div>
+						</div>
+						<div class="layui-tab-item">
+							<div class="layui-card-body">
+								<form class="layui-form">
+									<div class="water-btn" style="margin-bottom: 10px;">
+										附属物：
+										<div class="layui-inline">
+											<select id="water-fsw" class='layui-input-inline selectField'>
+												<option value="污水窨井">污水窨井</option>
+											</select>
+										</div>
+										&nbsp;&nbsp;&nbsp;&nbsp;特征点：
+										<div class="layui-inline">
+											<select id="water-tzd" class='layui-input-inline selectField'>
+												<option value="直线点">直线点</option>
+											</select>
+										</div>
+										&nbsp;&nbsp;&nbsp;&nbsp;材质：
+										<div class="layui-inline">
+											<select id="water-cz" class='layui-input-inline selectField'>
+												<option value="材质">材质</option>
+											</select>
+										</div>
+										&nbsp;&nbsp;&nbsp;&nbsp;所在道路：
+										<div class="layui-inline">
+											<input class="layui-input" id="water-szdl" autocomplete="off">
+										</div>
+										&nbsp;&nbsp;&nbsp;&nbsp;<button class="layui-btn" data-type="waterSearchBtn" style="background: #1E9FFF;">搜索</button>
+									</div>
+								</form>
+								<table class="layui-hide" id="water-table-pipe" lay-filter="water-table"></table>
+							</div>
+
+						</div>
+						<div class="layui-tab-item">
+							<div class="layui-card-body">
+								<form class="layui-form" id='wgjform'>
+									<div class="water-btn1" style="margin-bottom: 10px;">
+										埋设类型：
+										<div class="layui-inline">
+											<select id="water-mslx2" class='layui-input-inline selectField'>
+												<option value="污水窨井">污水窨井</option>
+											</select>
+										</div>
+										&nbsp;&nbsp;&nbsp;&nbsp;管径：
+										<div class="layui-inline">
+											<select id="water-gj2" class='layui-input-inline selectField'>
+												<option value="直线点">直线点</option>
+											</select>
+										</div>
+										&nbsp;&nbsp;&nbsp;&nbsp;材质：
+										<div class="layui-inline">
+											<select id="water-cz2" class='layui-input-inline selectField'>
+												<option value="材质">材质</option>
+											</select>
+										</div>
+										&nbsp;&nbsp;&nbsp;&nbsp;所在道路：
+										<div class="layui-inline">
+											<input class="layui-input" id="water-szdl2" autocomplete="off">
+										</div>
+										&nbsp;&nbsp;&nbsp;&nbsp;<button class="layui-btn" data-type="waterSearchBtn1" style="background: #1E9FFF;">搜索</button>
+									</div>
+									<div class="lens">管线总长为<span></span>m</div>
+								</form>
+								<table class="layui-hide" id="water-table-pipe1" lay-filter="water-table1"></table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="copyright">
+	版权所有@2018 金华市政管理处
+</div>
+</script>
+<script type="text/html" id="barDemo">
+	<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+	<a class="layui-btn layui-btn-xs" lay-event="location">定位</a>
+</script>
+<script type="text/javascript">
+	layui.data.basisLoad = function() {
+		//加载 controller 目录下的对应模块
+		layui.use('pipeManage', layui.factory('pipeManage'));
+	}
+</script>

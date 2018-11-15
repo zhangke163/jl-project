@@ -1,0 +1,392 @@
+<title>监测监控</title>
+<script type="text/html" template lay-done="layui.data.loadMap1()">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/all.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/monitorControl.css" media="all">
+</script>
+
+<div class="layui-card layadmin-header">
+  <div class="layui-breadcrumb" lay-filter="breadcrumb">
+    <a lay-href="">主页</a>
+    <a><cite>综合展示</cite></a>
+    <a><cite>泵站管理</cite></a>
+    <a><cite>监测监控</cite></a>
+  </div>
+</div>
+
+<div class="layui-fluid new-fluid">
+	<div class="layui-row layui-col-space15">
+		<div class="layui-col-md12">
+			<div class="layui-card">
+				<ul class="layui-nav new-layui-nav" lay-filter="component-nav">
+				  <li class="layui-nav-item layui-this"><a href="javaScript:void(0);">金龙湾泵站</a></li>
+				  
+				  <li class="layui-nav-item"><a href="javaScript:void(0);">西关泵站</a></li>
+				  
+				  <li class="layui-nav-item"><a href="javaScript:void(0);">公安分局泵站</a></li>
+				  <li class="layui-nav-item"><a href="javaScript:void(0);">公交桥泵站</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- <div class="layui-col-md3">
+			<div class="layui-card">
+				<div class="pump-img-box">
+					<img src="../src/style/res/pumpStation/level.png">
+				</div>
+				<div class="pump-img-text">
+					<div class="pump-data">
+						<div>5.82<span>m</span></div>
+						<div style="display: none;">4.82<span>m</span></div>
+						<div style="display: none;">3.82<span>m</span></div>
+						<div style="display: none;">2.82<span>m</span></div>
+					</div>
+					<div class="pump-name">泵井液位</div>
+				</div>
+				<div class="layui-clear"></div>
+			</div>
+		</div>
+		<div class="layui-col-md3">
+			<div class="layui-card">
+				<div class="pump-img-box">
+					<img src="../src/style/res/pumpStation/inlet.png">
+				</div>
+				<div class="pump-img-text">
+					<div class="pump-data">
+						<div>0.52<span>m³/s</span></div>
+						<div style="display: none;">1.52<span>m³/s</span></div>
+						<div style="display: none;">0.52<span>m³/s</span></div>
+						<div style="display: none;">1.52<span>m³/s</span></div>
+					</div>
+					<div class="pump-name">进水瞬时流量</div>
+				</div>
+				<div class="layui-clear"></div>
+			</div>
+		</div>
+		<div class="layui-col-md3">
+			<div class="layui-card">
+				<div class="pump-img-box">
+					<img src="../src/style/res/pumpStation/effluent.png">
+				</div>
+				<div class="pump-img-text">
+					<div class="pump-data">
+						<div>0.63<span>m³/s</span></div>
+						<div style="display: none;">1.63<span>m³/s</span></div>
+						<div style="display: none;">0.63<span>m³/s</span></div>
+						<div style="display: none;">1.63<span>m³/s</span></div>
+					</div>
+					<div class="pump-name">出水瞬时流量</div>
+				</div>
+				<div class="layui-clear"></div>
+			</div>
+		</div>
+		<div class="layui-col-md3">
+			<div class="layui-card">
+				<div class="pump-img-box">
+					<img src="../src/style/res/pumpStation/flow.png">
+				</div>
+				<div class="pump-img-text">
+					<div class="pump-data">
+						<div>12.3<span>m³/s</span></div>
+						<div style="display: none;">10.3<span>m³/s</span></div>
+						<div style="display: none;">11.3<span>m³/s</span></div>
+						<div style="display: none;">12.3<span>m³/s</span></div>
+					</div>
+					<div class="pump-name">累计流量</div>
+				</div>
+				<div class="layui-clear"></div>
+			</div>
+		</div> -->
+		<div class="layui-col-md12 online-monitor">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>厂外在线监测</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+          <div class="water-box">
+          	<div class="water">
+          		<div>
+          			<div class="module-name">PH值</div>
+          			<div class="module-num all-num">7.21</div>
+          		</div>
+          	</div>
+          	<div class="water">
+          		<div>
+          			<div class="module-name">COD值</div>
+          			<div class="module-num all-num dangerous">73.15<span class="unit">mg/L</span></div>
+          		</div>
+          	</div>
+          	<div class="water">
+          		<div>
+          			<div class="module-name">氨氮</div>
+          			<div class="module-num all-num dangerous">12.16<span class="unit">mg/L</span></div>
+          		</div>
+          	</div>
+          	<div class="water">
+          		<div>
+          			<div class="module-name">总磷</div>
+          			<div class="module-num all-num dangerous">1.56<span class="unit">mg/L</span></div>
+          		</div>
+          	</div>
+          	<div class="water">
+          		<div>
+          			<div class="module-name">总氮</div>
+          			<div class="module-num all-num dangerous">36.81<span class="unit">mg/L</span></div>
+          		</div>
+          	</div>
+          	<div class="layui-clear"></div>
+          </div>
+        </div>
+			</div>
+		</div>
+		<div class="layui-col-md12 online-monitor" style="display: none;">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>厂外在线监测</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+          <div class="water-box">
+          	<div class="water">
+          		<div>
+          			<div class="module-name">PH值</div>
+          			<div class="module-num all-num">7.24</div>
+          		</div>
+          	</div>
+          	<div class="water">
+          		<div>
+          			<div class="module-name">COD值</div>
+          			<div class="module-num all-num dangerous">63.15<span class="unit">mg/L</span></div>
+          		</div>
+          	</div>
+          	<div class="water">
+          		<div>
+          			<div class="module-name">氨氮</div>
+          			<div class="module-num all-num dangerous">16.13<span class="unit">mg/L</span></div>
+          		</div>
+          	</div>
+          	<div class="water">
+          		<div>
+          			<div class="module-name">总磷</div>
+          			<div class="module-num all-num dangerous">1.03<span class="unit">mg/L</span></div>
+          		</div>
+          	</div>
+          	<div class="water">
+          		<div>
+          			<div class="module-name">总氮</div>
+          			<div class="module-num all-num dangerous">35.76<span class="unit">mg/L</span></div>
+          		</div>
+          	</div>
+          	<div class="layui-clear"></div>
+          </div>
+        </div>
+			</div>
+		</div>
+		<div class="layui-col-md12">
+			<div class="layui-card">
+				<div class="layui-card-header old-border">
+					<div class="div-border">
+						<span class="span-border"></span>
+						<span>工艺总图</span>
+					</div>
+				</div>
+				<div class="layui-card-body">
+					<div class="technics-img">
+						<div class="level-info">
+							<div class="level-name">泵井液位</div>
+							<div class="level-data">6.81<span>m</span></div>
+						</div>
+						<div class="lift-pump-info">
+							<div>
+								<div class="lift-pump-name">1#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">2#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">3#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">4#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+						</div>
+						<div class="img-box">
+							<img src="../src/style/res/pumpStation/technics_4.png">
+						</div>
+					</div>
+					<div class="technics-img" style="display: none;">
+						<div class="level-info">
+							<div class="level-name">泵井液位</div>
+							<div class="level-data">6.81<span>m</span></div>
+						</div>
+						<div class="lift-pump-info">
+							<div>
+								<div class="lift-pump-name">1#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">2#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">3#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">4#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">5#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">6#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">7#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+						</div>
+						<div class="img-box">
+							<img src="../src/style/res/pumpStation/technics_7.png">
+						</div>
+					</div>
+					<div class="technics-img" style="display: none;">
+						<div class="level-info">
+							<div class="level-name">泵井液位</div>
+							<div class="level-data">6.81<span>m</span></div>
+						</div>
+						<div class="lift-pump-info">
+							<div>
+								<div class="lift-pump-name">1#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">2#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">3#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+						</div>
+						<div class="img-box">
+							<img src="../src/style/res/pumpStation/technics_3.png">
+						</div>
+					</div>
+					<div class="technics-img" style="display: none;">
+						<div class="level-info">
+							<div class="level-name">泵井液位</div>
+							<div class="level-data">6.81<span>m</span></div>
+						</div>
+						<div class="lift-pump-info">
+							<div>
+								<div class="lift-pump-name">1#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">2#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+							<div>
+								<div class="lift-pump-name">3#提升泵</div>
+								<div class="lift-pump-data">
+									<div class="hz">0.00HZ</div>
+									<div class="a">0.00A</div>
+								</div>
+								<div class="layui-clear"></div>
+							</div>
+						</div>
+						<div class="img-box">
+							<img src="../src/style/res/pumpStation/technics_3.png">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="layui-footer footer footer-demo new-footer-demo">
+	<div class="layui-main new-footer">版权所有@2018 金华市政管理处</div>
+</div>
+
+<script>
+	layui.data.loadMap1=function(){
+		//加载 controller 目录下的对应模块
+		layui.use('monitorControl', layui.factory('monitorControl'));
+	}
+</script>

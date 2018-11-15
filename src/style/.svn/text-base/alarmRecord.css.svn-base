@@ -1,0 +1,136 @@
+/*报警记录页面样式*/
+
+.float-sm {
+	/*width: 26%;*/
+	width: 20%;
+	text-align: right;
+	float: right;
+}
+
+.dangerous {
+	margin: 0;
+	color: #b70000;
+}
+
+.dangerous-info {
+	/*font-family: MicrosoftYaHei;*/
+	font-size: 12px;
+	color: #323232;
+}
+
+.time-record {
+	/*font-family: MicrosoftYaHei;*/
+	font-size: 12px;
+	color: #888888;
+}
+
+.show-name {
+	/*font-family: MicrosoftYaHei;*/
+	font-size: 16px;
+	color: #0095ff;
+}
+
+.show-order {
+	/*font-family: MicrosoftYaHei;*/
+	color: #888888;
+	position: relative;
+	top: 6px;
+}
+
+/*.offset-left {
+	padding-left: 25px;
+	border: none;
+}*/
+
+/*.margin-collapse {
+	overflow: hidden;
+	height: 453px;
+}*/
+
+.new-form-item {
+	float: left;
+	width: calc(30.1% - 20px);
+	margin-right: 20px;
+}
+
+.form-item-small {
+	width: calc(9.6% - 30px);
+	margin: 0;
+	margin-left: 30px;
+}
+
+.more-data-left {
+	float: left;
+	font-family: MicrosoftYaHei;
+	font-size: 14px;
+	color: #323232;
+	margin-top: 30px;
+	height: 30px;
+	line-height: 30px;
+}
+
+/*.more-data-right {
+	float: right;
+	margin-top: 30px;
+}*/
+
+/*#page .layui-laypage {
+	margin: 0;
+}*/
+
+/*.layui-laypage a, .layui-laypage span {
+	margin: 0 -1px 0px 0;
+}*/
+
+/*.new-layui-table th {
+	color: #323232;
+}*/
+
+.type-gather-title {
+	height: 20px;
+	line-height: 20px;
+	letter-spacing: 1px;
+	color: #323232;
+	/*font-family: MicrosoftYaHei;*/
+	font-size: 18px;
+	text-align: center;
+	margin: 10px auto;
+}
+
+.type-gather-tab .layui-tab-title {
+	box-sizing: border-box;
+}
+
+.type-gather-tab .layui-tab-title li {
+	color: #888888;
+}
+
+.type-gather-tab .layui-tab-title .layui-this {
+	background-color: #fff;
+	color: #323232;
+}
+
+#type_gather > div {
+	width: 100%;
+	height: 363px;
+}
+
+/*.layui-layer {
+	box-shadow: 0px 2px 2px 0px 
+		rgba(217, 217, 217, 0.65);
+}*/
+
+.new-table-btn {
+  background-color: #0095ff;
+  border-radius: 3px;
+  width: 50px;
+}
+
+.float-md {
+	padding-right: 15px;
+}
+
+.data_show {
+	height: 418px;
+	overflow: hidden;
+}

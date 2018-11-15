@@ -1,0 +1,33 @@
+.fluid-fill {
+	padding: 0;
+	padding-top: 50px;
+	height: 100%;
+	box-sizing: border-box;
+	position: relative;
+}
+.fluid-fill .row-fill {
+	height: 100%;
+	box-sizing: border-box;
+}
+.fluid-fill .row-fill .card-fill {
+	height: 100%;
+	box-sizing: border-box;
+	position: relative;
+}
+.fill-header {
+	position: absolute;
+	z-index: 1;
+	top: 0;
+	left: 0;
+	right: 0;
+}
+.fluid-fill .row-fill .card-fill iframe {
+	border:0;
+	width: 100%;
+	height: calc(100% + 63px);
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: -63px;
+}

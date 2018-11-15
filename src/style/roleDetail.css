@@ -1,0 +1,80 @@
+#rolename,#roledetail{
+    width:370px;
+}
+.tree-box{
+    width:400px;
+    height: 405px;
+    margin:0 auto;
+}
+#treeDemo {
+    height: 380px;
+    border: solid 1px #f1f1f1;
+    width: 400px;
+    margin:0 auto;
+    background: #ffffff;
+    overflow: auto;
+    /* display: none; */
+}
+.layui-form-item{
+	font-family: '微软雅黑';
+}
+#saveBtn{
+    width: 80px;
+    font-family: '微软雅黑';
+    border:0;
+    height: 38px;
+    border-radius: 3px;
+    color:#fff;
+    margin-left: 210px;
+    background-color: #0095ff;
+}
+/*修改树结构*/
+.ztree * {
+    font-size: 14px;
+}
+
+.ztree li {
+    line-height: 32px;
+}
+.ztree li span{
+	line-height:32px;
+}
+.ztree li span.button {
+    margin-top: 5px;
+}
+
+.ztree li span.button.switch {
+    height: 32px;
+    margin-top: 0;
+}
+
+.ztree li span.button.roots_open {
+    background-position: -92px -4px;
+}
+
+.ztree li span.button.center_open {
+    background-position: -92px -34px;
+}
+
+.ztree li span.button.bottom_open {
+    background-position: -92px -64px;
+}
+
+.ztree li span.button.roots_close {
+    background-position: -74px -4px;
+}
+
+.ztree li span.button.center_close {
+    background-position: -74px -34px;
+}
+
+.ztree li span.button.bottom_close {
+    background-position: -74px -64px;
+}
+.ztree li span.button.center_docu {
+    background-position: -55px -34px
+}
+
+.ztree li span.button.bottom_docu {
+    background-position: -55px -64px
+}

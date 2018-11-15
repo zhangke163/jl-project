@@ -1,0 +1,35 @@
+<title>报警信息</title>
+<link rel="stylesheet" href="../../../src/style/check.css" media="all">
+<div class="layui-fluid">
+	<div class="layui-card-body">
+		<div>
+			<div>
+				<div class="layer-left" id="location"></div>
+				<div class="layer-right" id="alarmTime"></div>
+				<div class="layui-clear"></div>
+			</div>
+			<div class="alarm-info" id="info_data"></div>
+			<div class="status">
+				<div class="attr">处理状态：</div>
+				<div class="status-info">
+					<div class="status-btn" id="status1">处理中</div>
+					<div class="status-btn" id="status2">已处理</div>
+					<div class="status-btn" id="status3">已忽略</div>
+				</div>
+			</div>
+			<div class="remark">
+				<div class="attr">备注：</div>
+				<div class="remark-info">
+					<input type="text" name="" id="remark">
+				</div>
+			</div>
+			<div class="btn-bottom">
+				<button class="cancle">取消</button>
+				<button class="yes">确认</button>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="../../../start/layui/layui.all.js"></script>
+<script src="../../config.js"></script>
+<script src="../../../src/controller/check.js"></script>

@@ -1,0 +1,58 @@
+<script type="text/html" template lay-done="layui.data.alarmLoad(d)">
+	<title>报警设置</title>
+	<link rel="stylesheet" href="{{ layui.setter.base }}style/alarmSet.css" />
+
+	<div class="layui-card layadmin-header">
+		<div class="layui-breadcrumb" lay-filter="breadcrumb">
+			<a lay-href="">主页</a>
+			<a><cite>监测预警</cite></a>
+			<a><cite>报警设置</cite></a>
+		</div>
+	</div>
+	<!--易涝监测点start-->
+	<div class="layui-fluid">
+		<div class="layui-row">
+			<div class="layui-col-md12 layui-card flood_content" id = 'contents-one'>
+				<div class="layui-col-md12 flood_title">
+					<div class="color_title"></div>
+					<span>易涝监测点-报警设置</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--易涝监测点end-->
+	<!--水质监测点start-->
+	<div class="layui-fluid water-fluid" style='margin-top:-15px;'>
+		<div class="layui-row">
+			<div class="layui-col-md12 layui-card flood_content" id = 'contents-two'>
+				<div class="layui-col-md12 flood_title">
+					<div class="color_title"></div>
+					<span>水质监测点-报警设置</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--水质监测点end-->
+	<!--流量监测点start-->
+	<div class="layui-fluid water-fluid">
+		<div class="layui-row">
+			<div class="layui-col-md12 layui-card flood_content" id = 'contents-three'>
+				<div class="layui-col-md12 flood_title">
+					<div class="color_title"></div>
+					<span>流量监测点-报警设置</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="copyright">
+		版权所有@2018 金华市政管理处
+	</div>
+</script>
+<!--流量监测点end-->
+<script>
+	layui.data.alarmLoad = function() {
+		//加载 controller 目录下的对应模块
+		layui.use('alarmSet', layui.factory('alarmSet'));
+		
+	}
+</script>

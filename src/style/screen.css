@@ -1,0 +1,45 @@
+@media screen and (min-width:1280px) and (max-width:1439px){
+	.module-num{
+		font-size: 18px;
+	}
+	.layui-tab-card > .new-tab-title > li{
+		width: 82px;
+	}
+	.layui-tab-card > .auto-width > li {
+		width: auto;
+	}
+	.new-tab-card {
+		min-width: 328px;
+	}
+	.show-name{
+		font-size: 14px;
+	}
+	.rountSize{
+		font-size:12px;
+	}
+	#authTree{
+		height: 160px;
+	}
+	
+	.current-time{
+		font-size: 12px;
+	}
+}
+@media screen and (min-width:1440px) and (max-width:1919px){
+	.layui-tab-card > .new-tab-title > li{
+		width: 96px;
+	}
+	.layui-tab-card > .auto-width > li {
+		width: auto;
+	}
+	.module-num{
+		font-size: 22px;
+	}
+	#authTree{
+		height: 190px;
+	}
+	
+}
+@media screen and (min-width:1920px){
+	
+}

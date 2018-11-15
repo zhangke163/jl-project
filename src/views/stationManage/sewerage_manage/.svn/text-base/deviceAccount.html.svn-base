@@ -1,0 +1,196 @@
+<title>设备台账</title>
+<script type="text/html" template lay-done="layui.data.loadMap1()">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/all.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/deviceAccount.css" media="all">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/font-awesome/css/font-awesome.min.css" media="all">
+</script>
+
+<div class="layui-card layadmin-header">
+  <div class="layui-breadcrumb" lay-filter="breadcrumb">
+    <a lay-href="">主页</a>
+    <a><cite>综合展示</cite></a>
+    <a><cite>污水处理厂管理</cite></a>
+    <a><cite>设备台账</cite></a>
+  </div>
+</div>
+
+<div class="layui-fluid new-fluid">
+	<div class="layui-row layui-col-space15">
+			<div class="layui-col-md3">
+				<div class="layui-card">
+					<div class="layui-card-header old-border">
+						<div class="div-border">
+							<span class="span-border"></span>
+							<span>设备统计</span>
+						</div>
+					</div>
+					<div class="layui-card-body">
+						<div class="margin-collapse new-height">
+							<div>
+								<div class="card-module">
+		          		<div class="module-name">格栅数量</div>
+		          		<div class="module-num all-num">6</div>
+		          	</div>
+		          	<div class="card-module">
+		          		<div class="module-name">水泵数量</div>
+		          		<div class="module-num all-num">14</div>
+		          	</div>
+		          	<div class="card-module">
+		          		<div class="module-name">闸门数量</div>
+		          		<div class="module-num all-num">3</div>
+		          	</div>
+		          	<div class="card-module">
+		          		<div class="module-name">启闭机数量</div>
+		          		<div class="module-num all-num">4</div>
+		          	</div>
+		          	<div class="card-module">
+		          		<div class="module-name">鼓风机数量</div>
+		          		<div class="module-num all-num">4</div>
+		          	</div>
+		          	<div class="card-module">
+		          		<div class="module-name">变压器数量</div>
+		          		<div class="module-num all-num">4</div>
+		          	</div>
+		          	<div class="card-module">
+		          		<div class="module-name">配电柜数量</div>
+		          		<div class="module-num all-num">4</div>
+		          	</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="layui-col-md9">
+				<div class="layui-card">
+					<div class="layui-card-header old-border">
+						<div class="div-border">
+							<span class="span-border"></span>
+							<span>设备类型统计</span>
+						</div>
+					</div>
+					<div class="layui-card-body">
+	          <div class="margin-collapse new-height">
+	          	<div id="device_type_1"></div>
+	          </div>
+	        </div>
+				</div>
+			</div>
+			<div class="layui-col-md12">
+				<div class="layui-card">
+					<div class="layui-card-header old-border">
+						<div class="div-border">
+							<span class="span-border"></span>
+							<span>数据列表</span>
+						</div>
+					</div>
+					<div class="layui-card-body">
+	          <div>
+	          	<div class="more-data">
+	          		<form class="layui-form" action="" lay-filter="new-form">
+	          			<div class="new-form-item">
+	          				<div class="layui-input-block new-input">
+	          					<select name="alarm">
+	    					        <option value="">全部设备类型</option>
+	    					        <option value="0">类型1</option>
+	    					        <option value="1">类型2</option>
+	    					        <option value="2">类型3</option>
+	    					        <option value="3">类型4</option>
+	    					        <option value="4">类型5</option>
+	    					      </select>
+	          				</div>
+	          			</div>
+			      			<div class="new-form-item">
+			      				<div class="layui-input-block new-input">
+			      					<select name="alarm">
+								        <option value="">全部管理人</option>
+								        <option value="0">管理人1</option>
+								        <option value="1">管理人2</option>
+								        <option value="2">管理人3</option>
+								        <option value="3">管理人4</option>
+								        <option value="4">管理人5</option>
+								      </select>
+			      				</div>
+			      			</div>
+			      			<div class="new-form-item">
+			      				<div class="layui-input-block new-input">
+			      					<select name="alarm">
+								        <option value="">全部管理部门</option>
+								        <option value="0">部门1</option>
+								        <option value="1">部门2</option>
+								        <option value="2">部门3</option>
+								        <option value="3">部门4</option>
+								        <option value="4">部门5</option>
+								      </select>
+			      				</div>
+			      			</div>
+			      			<div class="new-form-item">
+			      				<div class="layui-input-block new-input">
+			      					<select name="alarm">
+								        <option value="">全部权属单位</option>
+								        <option value="0">单位1</option>
+								        <option value="1">单位2</option>
+								        <option value="2">单位3</option>
+								        <option value="3">单位4</option>
+								        <option value="4">单位5</option>
+								      </select>
+			      				</div>
+			      			</div>
+			      			<div class="new-form-item">
+			      				<div class="layui-input-block new-input">
+			      					<select name="alarm">
+								        <option value="">全部安装状态</option>
+								        <option value="0">状态1</option>
+								        <option value="1">状态2</option>
+								        <option value="2">状态3</option>
+								        <option value="3">状态4</option>
+								        <option value="4">状态5</option>
+								      </select>
+			      				</div>
+			      			</div>
+			      			<div class="new-form-item">
+			      				<div class="layui-input-block new-input">
+			      					<select name="alarm">
+								        <option value="">全部运行状态</option>
+								        <option value="0">状态1</option>
+								        <option value="1">状态2</option>
+								        <option value="2">状态3</option>
+								        <option value="3">状态4</option>
+								        <option value="4">状态5</option>
+								      </select>
+			      				</div>
+			      			</div>
+			      			<div class="new-form-item form-item-small">
+		      			    <div class="layui-input-block new-input">
+		      			      <button class="layui-btn" lay-submit lay-filter="formDemo">查询</button>
+		      			    </div>
+		      			  </div>
+		      			  <div class="layui-clear"></div>
+	          		</form>
+	          		<div class="print-box">
+	          			
+	          			<button class="print"><i class="fa fa-print" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>打印</button>
+	          			<button class="export"><i class="fa fa-share-square-o" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>导出</button>
+	          			<button class="export"><i class="fa fa-plus-circle" aria-hidden="true" style="font-size: 16px; margin-right: 10px;"></i>添加</button>
+	          			<div class="layui-clear"></div>
+	          		</div>
+	          		<div>
+	      			    <table class="layui-hide" id="data_table"></table>
+	          		</div>
+	          	</div>
+	          </div>
+	        </div>
+				</div>
+			</div>
+	</div>
+</div>
+
+<div class="layui-footer footer footer-demo new-footer-demo">
+	<div class="layui-main new-footer">版权所有@2018 金华市政管理处</div>
+</div>
+
+<script>
+	layui.data.loadMap1=function(){
+		//加载 controller 目录下的对应模块
+		layui.use('deviceAccount_1', layui.factory('deviceAccount_1'));
+	}
+</script>

@@ -1,0 +1,78 @@
+<title>权限管理</title>
+<script type="text/html" template lay-done="layui.data.basisLoad()">
+    <link rel="stylesheet" href="{{ layui.setter.base }}style/all.css" media="all">
+  <link rel="stylesheet" href="{{ layui.setter.base }}style/authorityMan.css" media="all">
+  <link rel="stylesheet" href="{{ layui.setter.base }}style/taskReceive.css" />
+  <link rel="stylesheet" href="{{ layui.setter.base }}style/screen.css" />
+</script>
+<div class="layui-card layadmin-header">
+    <div class="layui-breadcrumb" lay-filter="breadcrumb">
+        <a lay-href="">主页</a>
+        <a><cite>系统管理</cite></a>
+        <a><cite>权限管理1</cite></a>
+    </div>
+</div>
+
+<div class="layui-fluid">
+    <div class="layui-row">
+        <div class="layui-col-md12 layui-card" style='height: 160px;padding-left: 10px;padding-right: 10px;'>
+            <div class="titleBox">
+                <div class="line"></div>
+                <h2>添加角色</h2>
+            </div>
+            <div class="layui-card-body" style='width: 95%;margin:0 auto'>
+                <form class="layui-form" action="" lay-filter="component-form-element" id='roleInfo' style='margin-top:-7px;'>
+
+                    <div class="layui-row layui-col-space10 layui-form-item" style='margin-top:30px;'>
+                        <div class="one-input left">
+                            <label class="layui-form-label"><span class='star'>*</span>角色名称</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="name" id='name' lay-verify="required" placeholder="请输入角色名称"
+                                    autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+
+                        <div class="two-input left">
+                            <label class="layui-form-label">描述</label>
+                            <div class="layui-input-block">
+                                <input type="text" name="instruction" id='instruction' placeholder="请输入描述文字"
+                                    autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
+                        <div class="three-input right">
+                            <button class="layui-btn" lay-submit lay-filter="addRole" style='background-color: #03b373;width:100px'>添加</button>
+                        </div>
+                    </div>
+                </form> 
+            </div>
+        </div>
+    </div>
+</div>
+<div class="layui-fluid" style='margin-top:-15px;'>
+    <div class="layui-row">
+        <div class="layui-col-md12 layui-card bottom-box">
+            <div class="titleBox">
+                <div class="line"></div>
+                <h2 style='float: left;'>角色列表</h2>
+            </div>
+            <div class="tableBox" style='overflow-y:auto;'>
+                <table class="layui-hide" id="roleTable" lay-filter="roleTable"></table>
+                <script type="text/html" id="barDemo">
+                    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+					<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+                </script>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="copyright">
+    版权所有@2018 金华市政管理处
+</div>
+<script type="text/javascript">
+    layui.data.basisLoad = function () {
+        //加载 controller 目录下的对应模块
+        layui.use('authorityManage', layui.factory('authorityManage'));
+
+
+    }
+</script>

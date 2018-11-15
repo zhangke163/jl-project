@@ -1,0 +1,33 @@
+  /*分页器样式*/
+        .paginationWrap .pagination a{
+            background: #fff;
+            border-color: #dadee4;
+            color: #000;
+        }
+        .pagination>li>a,
+        .pagination>li>span {
+            padding: 0;
+            width: 43px;
+            height: 32px;
+            text-align: center;
+            line-height: 32px;
+        }
+
+        .pagination {
+            margin: 10px 0;
+        }
+
+        .pagination .first,
+        .pagination .last {
+            display: none;
+        }
+
+        .pagination .active a{
+    background-color: #357ce7;
+    color: #fff;
+}
+
+        .pagination .next a,
+        .pagination .prev a {
+            width: 80px;
+        }
